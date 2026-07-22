@@ -228,18 +228,36 @@ body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-s
 /* ── LIGHT SECTIONS ── */
 body.light-sec{background:var(--lt)}
 
-/* services */
-#services{background:var(--lt2);padding:100px 48px}
+/* services — dark wave section */
+#services{background:#0D1117;padding:100px 48px}
 #services .sec-inner{max-width:1200px;margin:0 auto}
 #services .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-#services h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,68px);line-height:1;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:16px}
-#services .sec-body{font-size:17px;color:var(--muted-dk);max-width:520px;margin-bottom:60px}
+#services h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,68px);line-height:1;letter-spacing:.02em;color:#fff;margin-bottom:16px}
+#services .sec-body{font-size:17px;color:rgba(228,234,240,.62);max-width:520px;margin-bottom:60px}
 .srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.srv-card{background:var(--lt);border:1px solid var(--bdr-lt);border-radius:12px;padding:40px;transition:box-shadow .3s,border-color .3s;cursor:default}
-.srv-card:hover{box-shadow:0 8px 32px rgba(14,184,245,.1);border-color:rgba(14,184,245,.25)}
-.srv-icon{width:48px;height:48px;background:rgba(14,184,245,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--accent)}
-.srv-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.04em;margin-bottom:10px;color:var(--txt-dk)}
-.srv-desc{font-size:15px;color:var(--muted-dk);line-height:1.65}
+.srv-card{
+  display:block;text-decoration:none;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;padding:40px;
+  transition:box-shadow .3s,border-color .3s,transform .3s;
+  cursor:pointer;position:relative;
+}
+.srv-card:hover{
+  box-shadow:0 12px 40px rgba(14,184,245,.14);
+  border-color:rgba(14,184,245,.35);
+  transform:translateY(-3px);
+}
+.srv-card-arrow{
+  position:absolute;bottom:24px;right:28px;
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);opacity:0;transition:opacity .25s;
+}
+.srv-card:hover .srv-card-arrow{opacity:1}
+.srv-icon{width:48px;height:48px;background:rgba(14,184,245,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--accent)}
+.srv-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.04em;margin-bottom:10px;color:#fff}
+.srv-desc{font-size:15px;color:rgba(228,234,240,.62);line-height:1.65;padding-bottom:16px}
 
 /* process */
 #process{background:var(--lt);padding:100px 48px}
@@ -575,41 +593,50 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   </div>
 </section>
 
-<!-- SERVICES — light bg -->
+<!-- WAVE: parallax → dark services -->
+<div class="wave-divider" style="background:#0D1117">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" height="80"><path d="M0,0 L0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0Z" fill="#061C2E"/></svg>
+</div>
+
+<!-- SERVICES — dark bg -->
 <section id="services">
   <div class="sec-inner">
     <p class="sec-eye">What We Do</p>
     <h2>Built to Impress.<br>Built to Last.</h2>
     <p class="sec-body">From custom inground pools to complete backyard renovations — we handle every phase with precision and transparency.</p>
     <div class="srv-grid">
-      <div class="srv-card">
+      <a class="srv-card" href="services.html#custom-pool-design">
         <div class="srv-icon">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <div class="srv-title">Custom Pool Design</div>
         <p class="srv-desc">Every pool starts with your vision. Our designers work with you on shape, depth, finishes, and features — with a 3D preview before a single shovel breaks ground.</p>
-      </div>
-      <div class="srv-card">
+        <div class="srv-card-arrow">See Details <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a class="srv-card" href="services.html#pool-renovations">
         <div class="srv-icon">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <div class="srv-title">Pool Renovations</div>
         <p class="srv-desc">Resurfacing, retiling, equipment upgrades, and full structural renovations — all managed under one team so you deal with one point of contact from start to finish.</p>
-      </div>
-      <div class="srv-card">
+        <div class="srv-card-arrow">See Details <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a class="srv-card" href="services.html#water-features">
         <div class="srv-icon">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
         </div>
         <div class="srv-title">Water Features</div>
         <p class="srv-desc">Waterfalls, grottos, sun shelves, LED lighting, and spa spillovers. We design features that add drama, ambiance, and real value to your outdoor space.</p>
-      </div>
-      <div class="srv-card">
+        <div class="srv-card-arrow">See Details <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a class="srv-card" href="services.html#maintenance-plans">
         <div class="srv-icon">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
         <div class="srv-title">Maintenance Plans</div>
         <p class="srv-desc">Weekly and monthly packages to keep your pool crystal clear year-round. Chemistry balancing, cleaning, equipment checks — handled so you just enjoy it.</p>
-      </div>
+        <div class="srv-card-arrow">See Details <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
     </div>
   </div>
 </section>
