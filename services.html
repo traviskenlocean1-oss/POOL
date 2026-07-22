@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services | Aqualine Pools & Design — South Florida Pool Builders</title>
+<meta name="description" content="Custom pool design, renovations, water features, outdoor living, smart automation, and weekly maintenance — all under one expert team in South Florida." />
+<link rel="canonical" href="https://aqualinepools.com/services" />
+<meta property="og:title" content="Our Services | Aqualine Pools & Design" />
+<meta property="og:description" content="From design to water — every service you need, handled by one expert team." />
+<meta property="og:type" content="website" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Aqualine Pools & Design","telephone":"+15615550190","address":{"@type":"PostalAddress","addressLocality":"Boca Raton","addressRegion":"FL","postalCode":"33431"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Pool Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Pool Design & Build"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pool Renovations"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Water Features & Spa"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Outdoor Living & Decking"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Equipment & Automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Maintenance Plans"}}]}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dk:#08090D;--dk2:#0D1117;--dk-card:#111520;
+  --accent:#0EB8F5;--accent-dk:#0899CC;
+  --gold:#C4972A;
+  --txt:#E4EAF0;--muted:#6B7A8D;
+  --bdr:rgba(255,255,255,.07);
+  --lt:#F5F7FA;--lt2:#FFFFFF;
+  --txt-dk:#0F1218;--muted-dk:#4A5568;--bdr-lt:rgba(0,0,0,.08);
+  --r:10px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--lt);color:var(--txt-dk);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  z-index:100;
+  background:linear-gradient(to bottom,rgba(8,9,13,.65) 0%,transparent 100%);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+  font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.06em;
+  color:#fff;opacity:.9;
+}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-phone{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 18px;border-radius:50px;
+  border:1px solid rgba(255,255,255,.22);
+  font-size:13px;font-weight:600;color:#fff;
+  text-decoration:none;letter-spacing:.02em;
+  transition:background .2s,border-color .2s;
+}
+.nav-phone:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--dk);z-index:99;padding:100px 32px 32px;flex-direction:column}
+.mob-nav.open{display:flex}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:24px}
+.mob-nav a{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--txt);text-decoration:none;letter-spacing:.06em;transition:color .2s}
+.mob-nav a:hover{color:var(--accent)}
+
+/* ── SERVICES HERO ── */
+#srv-hero{
+  position:relative;
+  height:100vh;min-height:600px;
+  background-image:url('vws-pool-hero-background.png');
+  background-size:cover;
+  background-position:center 40%;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+#srv-hero::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(8,9,13,.5) 0%,rgba(8,9,13,.62) 60%,rgba(8,9,13,.75) 100%);
+}
+.srv-hero-inner{position:relative;z-index:1;padding:0 24px;max-width:900px;margin:0 auto}
+.srv-hero-eye{
+  font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:22px;
+}
+.srv-hero-h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,11vw,148px);
+  line-height:.88;letter-spacing:.02em;
+  color:#fff;text-shadow:0 6px 60px rgba(0,0,0,.5);
+  text-wrap:balance;margin-bottom:28px;
+}
+.srv-hero-sub{
+  font-size:18px;color:rgba(228,234,240,.72);
+  line-height:1.65;max-width:520px;margin:0 auto 40px;
+}
+.srv-hero-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 36px;background:var(--accent);color:#08090D;
+  border-radius:50px;font-size:15px;font-weight:700;
+  font-family:'Inter',sans-serif;text-decoration:none;
+  letter-spacing:.02em;transition:background .2s,box-shadow .2s,transform .2s;
+}
+.srv-hero-cta:hover{background:var(--accent-dk);box-shadow:0 8px 28px rgba(14,184,245,.35);transform:translateY(-2px)}
+.srv-hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+}
+.srv-hero-scroll svg{animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ── INTRO BAND ── */
+#srv-intro{
+  background:var(--dk);
+  padding:80px 48px;
+  text-align:center;
+}
+.srv-intro-inner{max-width:760px;margin:0 auto}
+.srv-intro-inner .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.srv-intro-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,58px);line-height:1;letter-spacing:.02em;color:var(--txt);margin-bottom:20px}
+.srv-intro-inner p{font-size:17px;color:var(--muted);line-height:1.75}
+
+/* ── SERVICE CARDS ── */
+#services-grid{background:var(--lt2);padding:80px 48px 100px}
+.sg-inner{max-width:1200px;margin:0 auto}
+.sg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.sg-card{
+  background:var(--lt);border:1px solid var(--bdr-lt);
+  border-radius:14px;padding:48px 44px;
+  transition:box-shadow .3s,border-color .3s,transform .3s;
+}
+.sg-card:hover{box-shadow:0 12px 40px rgba(14,184,245,.1);border-color:rgba(14,184,245,.3);transform:translateY(-3px)}
+.sg-icon{
+  width:54px;height:54px;border-radius:12px;
+  background:rgba(14,184,245,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);margin-bottom:26px;
+}
+.sg-num{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.sg-title{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.04em;color:var(--txt-dk);margin-bottom:16px;line-height:1}
+.sg-desc{font-size:15px;color:var(--muted-dk);line-height:1.75;margin-bottom:28px}
+.sg-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.sg-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;color:var(--txt-dk);line-height:1.5;
+}
+.sg-list li::before{
+  content:'';flex-shrink:0;width:7px;height:7px;
+  border-radius:50%;background:var(--accent);
+  margin-top:6px;
+}
+.sg-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:600;color:var(--accent);
+  text-decoration:none;letter-spacing:.04em;
+  transition:gap .2s;
+}
+.sg-link:hover{gap:10px}
+.sg-link svg{transition:transform .2s}
+.sg-link:hover svg{transform:translateX(3px)}
+
+/* ── CTA BANNER ── */
+#srv-cta{
+  background:var(--dk);
+  padding:100px 48px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+#srv-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(14,184,245,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.srv-cta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.srv-cta-inner .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.srv-cta-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,80px);line-height:.95;letter-spacing:.02em;color:#fff;margin-bottom:22px;text-wrap:balance}
+.srv-cta-inner p{font-size:17px;color:var(--muted);line-height:1.7;margin-bottom:40px}
+.cta-pair{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-accent{display:inline-flex;align-items:center;gap:8px;padding:15px 36px;background:var(--accent);color:#08090D;border-radius:50px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:.02em;transition:background .2s,box-shadow .2s,transform .2s}
+.btn-accent:hover{background:var(--accent-dk);box-shadow:0 8px 28px rgba(14,184,245,.35);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 34px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.8);border-radius:50px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:.02em;transition:border-color .2s,color .2s,background .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06)}
+
+/* ── FOOTER ── */
+footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32px}
+.foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-brand p{font-size:14px;color:var(--muted);line-height:1.7;margin-top:14px}
+.foot-col h4{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.foot-col a{font-size:14px;color:rgba(228,234,240,.55);text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:var(--txt)}
+.foot-btm{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .sg-grid{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  #nav{padding:0 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  #srv-hero{background-position:65% center}
+  #srv-intro,#services-grid,#srv-cta,footer{padding-left:20px;padding-right:20px}
+  .sg-card{padding:32px 28px}
+  .foot-inner{grid-template-columns:1fr}
+  .foot-btm{flex-direction:column;gap:10px;text-align:center}
+  .cta-pair{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+      <path d="M3 19c2.5-5 7-7 11-7s8.5 2 11 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M1 23c3-5 8-7 13-7s10 2 13 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
+      <circle cx="14" cy="8" r="4" stroke="currentColor" stroke-width="2.5"/>
+    </svg>
+    AQUALINE
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="index.html#gallery-preview">Gallery</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#contact">Get a Quote</a></li>
+    </ul>
+    <a href="tel:+15615550190" class="nav-phone">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16z"/></svg>
+      (561) 555-0190
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-nav" id="mob-nav">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#gallery-preview">Gallery</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Get a Quote</a></li>
+    <li><a href="tel:+15615550190">(561) 555-0190</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="srv-hero">
+  <div class="srv-hero-inner">
+    <p class="srv-hero-eye">What We Do</p>
+    <h1 class="srv-hero-h1">FROM DESIGN<br>TO WATER.</h1>
+    <p class="srv-hero-sub">Every service you need — handled by one expert team from permit to final inspection.</p>
+    <a href="#services-grid" class="srv-hero-cta">
+      See All Services
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+  <div class="srv-hero-scroll">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- INTRO BAND -->
+<section id="srv-intro">
+  <div class="srv-intro-inner">
+    <p class="sec-eye">Aqualine Pools & Design</p>
+    <h2>One Company. Every Phase.</h2>
+    <p>Most pool projects involve a patchwork of contractors — we eliminate that. From the initial 3D design consultation to final equipment startup, one team manages your build, your timeline, and your outcome. That's why South Florida homeowners come back to us, and send their neighbors.</p>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section id="services-grid">
+  <div class="sg-inner">
+    <div class="sg-grid">
+
+      <!-- 1 Custom Pool Design & Build -->
+      <div class="sg-card">
+        <div class="sg-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <p class="sg-num">01</p>
+        <h2 class="sg-title">Custom Pool Design & Build</h2>
+        <p class="sg-desc">From the first sketch to the day you swim, we manage every phase. Our design team builds 3D renderings of your pool before a single shovel breaks ground — so you can see the exact shape, depth, tile, and finish before we start. No surprises. No rework.</p>
+        <ul class="sg-list">
+          <li>In-home design consultation & 3D rendering</li>
+          <li>Site assessment, grading & permit management</li>
+          <li>Structural excavation & gunite/shotcrete shell</li>
+          <li>Full plumbing, electrical & bonding</li>
+          <li>Tile, coping & finish selection + installation</li>
+          <li>Equipment installation & startup walkthrough</li>
+        </ul>
+        <a href="index.html#contact" class="sg-link">
+          Get a design quote
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- 2 Renovations -->
+      <div class="sg-card">
+        <div class="sg-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <p class="sg-num">02</p>
+        <h2 class="sg-title">Pool Renovations & Remodeling</h2>
+        <p class="sg-desc">An aging pool doesn't mean starting over. We handle full-scale renovations — from surface resurfacing to structural rebuilds. Cracked plaster, outdated coping, broken equipment — we bring pools back to like-new condition, often for a fraction of replacement cost.</p>
+        <ul class="sg-list">
+          <li>Plaster, pebble & quartz resurfacing</li>
+          <li>Tile replacement, coping & waterline upgrades</li>
+          <li>Structural crack repair & shell restoration</li>
+          <li>Deck resurfacing & paver replacement</li>
+          <li>Equipment upgrades: pumps, filters, heaters</li>
+          <li>New plumbing, LED lighting & bonding</li>
+        </ul>
+        <a href="index.html#contact" class="sg-link">
+          Get a renovation quote
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- 3 Water Features & Spa -->
+      <div class="sg-card">
+        <div class="sg-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+        </div>
+        <p class="sg-num">03</p>
+        <h2 class="sg-title">Water Features & Spa Integration</h2>
+        <p class="sg-desc">The right feature transforms a pool into an experience. Cascading waterfalls, grottos, sun shelves, sheer descents, fire bowls, and spillover spas — we design and build features that add drama, ambiance, and real resale value to your outdoor space.</p>
+        <ul class="sg-list">
+          <li>Natural rock & stacked-stone waterfalls</li>
+          <li>Sheer descents, rain curtains & deck jets</li>
+          <li>Integrated spas, hot tubs & spillover systems</li>
+          <li>Sun shelves, tanning ledges & bubblers</li>
+          <li>Fire bowls, fire features & gas line work</li>
+          <li>Color-changing LED lighting packages</li>
+        </ul>
+        <a href="index.html#contact" class="sg-link">
+          Explore water features
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- 4 Outdoor Living -->
+      <div class="sg-card">
+        <div class="sg-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <p class="sg-num">04</p>
+        <h2 class="sg-title">Outdoor Living & Decking</h2>
+        <p class="sg-desc">A great pool deserves an equally great surround. We design and build complete outdoor living spaces — from travertine pool decks to fully equipped summer kitchens, pergolas, and fire pits. Your pool is the centerpiece; we handle everything around it.</p>
+        <ul class="sg-list">
+          <li>Travertine, pavers & stamped concrete decking</li>
+          <li>Outdoor & summer kitchen construction</li>
+          <li>Pergolas, shade sails & cabana structures</li>
+          <li>Fire pits & outdoor fireplace installation</li>
+          <li>Landscape lighting & low-voltage hardscape</li>
+          <li>Screen enclosures & pool cage installation</li>
+        </ul>
+        <a href="index.html#contact" class="sg-link">
+          Design your outdoor space
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- 5 Equipment & Automation -->
+      <div class="sg-card">
+        <div class="sg-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+        </div>
+        <p class="sg-num">05</p>
+        <h2 class="sg-title">Equipment & Smart Automation</h2>
+        <p class="sg-desc">Modern pool tech makes ownership effortless. We install and upgrade all pool equipment — variable-speed pumps, gas heaters, saltwater systems, and full smart-home automation. Control your pool, lights, and features from your phone, from anywhere.</p>
+        <ul class="sg-list">
+          <li>Variable-speed pump installation & sizing</li>
+          <li>Gas, heat pump & solar heater systems</li>
+          <li>Saltwater chlorination & mineral systems</li>
+          <li>Color-changing LED lighting retrofit</li>
+          <li>Pentair & Jandy smart automation systems</li>
+          <li>Remote app setup & system programming</li>
+        </ul>
+        <a href="index.html#contact" class="sg-link">
+          Upgrade your equipment
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- 6 Maintenance -->
+      <div class="sg-card">
+        <div class="sg-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p class="sg-num">06</p>
+        <h2 class="sg-title">Weekly Service & Maintenance</h2>
+        <p class="sg-desc">Keep your investment pristine year-round without lifting a finger. Our certified service teams provide weekly visits, chemical balancing, equipment checks, and seasonal tune-ups — so pool ownership stays enjoyable, not a second job.</p>
+        <ul class="sg-list">
+          <li>Weekly chemical balancing & water testing</li>
+          <li>Brush, skim & vacuum service</li>
+          <li>Filter cleaning, backwash & inspection</li>
+          <li>Minor equipment repairs & adjustments</li>
+          <li>Seasonal startup, winterization & storm prep</li>
+          <li>Digital service report after every visit</li>
+        </ul>
+        <a href="index.html#contact" class="sg-link">
+          Start a service plan
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="srv-cta">
+  <div class="srv-cta-inner">
+    <p class="sec-eye">Ready to Build?</p>
+    <h2>Your Dream Pool Starts With One Call.</h2>
+    <p>Free design consultations — no pressure, no obligation. We'll assess your yard, walk you through options, and give you a real number before you commit to anything.</p>
+    <div class="cta-pair">
+      <a href="index.html#contact" class="btn-accent">
+        Schedule Your Free Consultation
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:+15615550190" class="btn-ghost">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16z"/></svg>
+        (561) 555-0190
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <a href="index.html" class="nav-logo" style="font-size:20px;color:var(--txt);opacity:.9">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+          <path d="M3 19c2.5-5 7-7 11-7s8.5 2 11 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M1 23c3-5 8-7 13-7s10 2 13 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
+          <circle cx="14" cy="8" r="4" stroke="currentColor" stroke-width="2.5"/>
+        </svg>
+        AQUALINE
+      </a>
+      <p>South Florida's premier custom pool builders. Serving Boca Raton, Delray Beach, Palm Beach Gardens, and surrounding communities since 2007.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="index.html#gallery-preview">Gallery</a></li>
+        <li><a href="index.html#process">Our Process</a></li>
+        <li><a href="index.html#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services-grid">Custom Pool Build</a></li>
+        <li><a href="#services-grid">Renovations</a></li>
+        <li><a href="#services-grid">Water Features</a></li>
+        <li><a href="#services-grid">Outdoor Living</a></li>
+        <li><a href="#services-grid">Automation</a></li>
+        <li><a href="#services-grid">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+15615550190">(561) 555-0190</a></li>
+        <li><a href="index.html#contact">Get a Free Quote</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Aqualine Pools & Design. All rights reserved.</span>
+    <span>Boca Raton, FL 33431</span>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobNav    = document.getElementById('mob-nav');
+hamburger.addEventListener('click', () => mobNav.classList.toggle('open'));
+mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobNav.classList.remove('open')));
+
+/* smooth scroll for anchor links on same page */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
