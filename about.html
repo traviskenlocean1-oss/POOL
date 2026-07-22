@@ -71,7 +71,7 @@ body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;fo
 #about-story{background:var(--lt2);padding:96px 48px}
 .story-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .story-img{border-radius:12px;overflow:hidden}
-.story-img img{width:100%;height:480px;object-fit:cover;display:block;border-radius:12px}
+.story-img img{width:100%;height:620px;object-fit:cover;object-position:top center;display:block;border-radius:12px}
 .story-text .sec-eye{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 .story-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,64px);line-height:.95;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:22px;text-wrap:balance}
 .story-text p{font-size:16px;color:var(--muted-dk);line-height:1.78;margin-bottom:18px}
@@ -88,26 +88,43 @@ body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;fo
 .value-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;color:#fff;margin-bottom:12px}
 .value-desc{font-size:14px;color:rgba(228,234,240,.6);line-height:1.65}
 
-/* ── TEAM SECTION ── */
-#about-team{background:var(--lt);padding:96px 48px}
-.team-inner{max-width:1200px;margin:0 auto}
-.team-inner .sec-eye{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.team-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,64px);line-height:.95;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:16px;text-wrap:balance}
-.team-inner .team-sub{font-size:17px;color:var(--muted-dk);max-width:560px;margin-bottom:56px}
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.team-card{background:var(--lt2);border:1px solid var(--bdr-lt);border-radius:12px;padding:28px;text-align:center;transition:box-shadow .3s}
-.team-card:hover{box-shadow:0 8px 32px rgba(14,184,245,.1)}
-.team-avatar{width:80px;height:80px;border-radius:50%;background:rgba(14,184,245,.15);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.04em}
-.team-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;color:var(--txt-dk);margin-bottom:6px}
-.team-role{font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
-.team-bio{font-size:13px;color:var(--muted-dk);line-height:1.6}
+/* ── COMMITMENT + STATS (Reyes-style) ── */
+#about-commitment{background:var(--lt2);padding:96px 48px;position:relative;overflow:hidden}
+.commit-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.commit-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.commit-eyebrow-line{flex:0 0 36px;height:2px;background:var(--accent);border-radius:2px}
+.commit-eyebrow span{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+.commit-left h2{font-family:'Inter',sans-serif;font-size:clamp(30px,3.2vw,48px);font-weight:800;line-height:1.1;color:var(--txt-dk);margin-bottom:20px}
+.commit-bar{width:56px;height:4px;background:var(--accent);border-radius:2px;margin-bottom:28px}
+.commit-left p{font-size:16px;color:var(--muted-dk);line-height:1.78;margin-bottom:16px}
+.commit-right{position:relative}
+.commit-watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.04}
+.commit-watermark img{width:90%;object-fit:contain}
+.stat-stack{display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
+.stat-card{background:var(--lt);border:1px solid var(--bdr-lt);border-radius:14px;padding:24px 28px;display:flex;align-items:center;gap:22px;transition:box-shadow .3s,border-color .3s}
+.stat-card:hover{box-shadow:0 6px 28px rgba(14,184,245,.1);border-color:rgba(14,184,245,.22)}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:58px;line-height:1;color:var(--accent);letter-spacing:.01em;white-space:nowrap;min-width:100px}
+.stat-info h4{font-size:15px;font-weight:700;color:var(--txt-dk);margin-bottom:5px}
+.stat-info p{font-size:13px;color:var(--muted-dk);line-height:1.5}
 
-/* ── CTA ── */
-#about-cta{background:var(--dk);padding:96px 48px;text-align:center}
-.about-cta-inner{max-width:620px;margin:0 auto}
-.about-cta-inner .sec-eye{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.about-cta-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,5vw,72px);line-height:.95;color:#fff;margin-bottom:18px;text-wrap:balance}
-.about-cta-inner p{font-size:16px;color:var(--muted);margin-bottom:36px;line-height:1.7}
+/* ── DARK PHOTO CTA (Reyes-style) ── */
+#about-photo-cta{position:relative;padding:100px 48px;background-image:url('aqualine-family-pool-hero.png');background-size:cover;background-position:center}
+#about-photo-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,28,46,.93) 0%,rgba(8,9,13,.78) 100%)}
+.photo-cta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;position:relative;z-index:1}
+.photo-cta-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.photo-cta-eyebrow-line{flex:0 0 28px;height:2px;background:var(--accent);border-radius:2px}
+.photo-cta-eyebrow span{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+.photo-cta-left h2{font-size:clamp(26px,3vw,44px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:32px}
+.photo-cta-left h2 em{font-style:normal;color:var(--accent)}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:rgba(228,234,240,.85);line-height:1.55}
+.check-list li strong{color:#fff}
+.chk{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.photo-cta-card{background:var(--accent);border-radius:18px;padding:36px 32px;text-align:center;min-width:268px;max-width:300px}
+.photo-cta-card h3{font-family:'Inter',sans-serif;font-size:19px;font-weight:800;color:#08090D;line-height:1.2;margin-bottom:6px}
+.photo-cta-card p{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(8,9,13,.5);margin-bottom:24px}
+.photo-cta-btn{display:block;background:#08090D;color:var(--accent);font-family:'Inter',sans-serif;font-size:14px;font-weight:700;padding:14px 22px;border-radius:50px;text-decoration:none;transition:background .2s,transform .2s}
+.photo-cta-btn:hover{background:#1a2c3d;transform:translateY(-2px)}
 .btn-accent{display:inline-flex;align-items:center;gap:8px;padding:14px 34px;background:var(--accent);color:#08090D;border-radius:50px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:.02em;transition:background .2s,box-shadow .2s,transform .2s}
 .btn-accent:hover{background:var(--accent-dk);box-shadow:0 8px 28px rgba(14,184,245,.35);transform:translateY(-2px)}
 
@@ -124,7 +141,9 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 @media(max-width:1024px){
   .story-inner{grid-template-columns:1fr;gap:48px}
   .values-grid{grid-template-columns:1fr 1fr}
-  .team-grid{grid-template-columns:1fr 1fr}
+  .commit-inner{grid-template-columns:1fr;gap:56px}
+  .photo-cta-inner{grid-template-columns:1fr;gap:40px}
+  .photo-cta-card{max-width:100%}
   .foot-inner{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
@@ -235,51 +254,84 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   </div>
 </section>
 
-<!-- TEAM -->
-<section id="about-team">
-  <div class="team-inner">
-    <p class="sec-eye">The Team</p>
-    <h2>The People Behind Your Pool</h2>
-    <p class="team-sub">Add your team members here — names, roles, headshots, and a line about each person. Let people know who will actually be showing up to their property.</p>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">JD</div>
-        <div class="team-name">Team Member</div>
-        <div class="team-role">Founder & CEO</div>
-        <p class="team-bio">Your content here. Short bio, background, years in the industry.</p>
+<!-- OUR COMMITMENT + STATS -->
+<section id="about-commitment">
+  <div class="commit-inner">
+    <div class="commit-left">
+      <div class="commit-eyebrow">
+        <div class="commit-eyebrow-line"></div>
+        <span>Our Commitment</span>
+        <div class="commit-eyebrow-line"></div>
       </div>
-      <div class="team-card">
-        <div class="team-avatar">MR</div>
-        <div class="team-name">Team Member</div>
-        <div class="team-role">Lead Designer</div>
-        <p class="team-bio">Your content here.</p>
+      <h2>18 Years of Reliability,<br>Transparency & Craft.</h2>
+      <div class="commit-bar"></div>
+      <p>We don't believe in excuses, change orders that blindside you, or crews you've never met showing up to your yard. Aqualine was built on a different premise: that the people who make you a promise should be the same people who keep it — on time, on budget, and with the kind of workmanship that holds up for decades.</p>
+      <p>Our certified team leads each bring an average of 11 years of hands-on pool construction experience. Every project gets weekly progress updates, a direct project manager line, and a detailed build timeline before we break ground. You'll never wonder what's happening with your pool.</p>
+    </div>
+    <div class="commit-right">
+      <div class="commit-watermark">
+        <img src="aqualine-logo.png" alt="" aria-hidden="true" />
       </div>
-      <div class="team-card">
-        <div class="team-avatar">SK</div>
-        <div class="team-name">Team Member</div>
-        <div class="team-role">Project Manager</div>
-        <p class="team-bio">Your content here.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">AV</div>
-        <div class="team-name">Team Member</div>
-        <div class="team-role">Head of Service</div>
-        <p class="team-bio">Your content here.</p>
+      <div class="stat-stack">
+        <div class="stat-card">
+          <div class="stat-num">18+</div>
+          <div class="stat-info">
+            <h4>Years of Experience</h4>
+            <p>Serving Palm Beach, Broward & Miami-Dade since 2008 with consistent, award-level results.</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">600+</div>
+          <div class="stat-info">
+            <h4>Pools Built</h4>
+            <p>From compact plunge pools to full resort-style builds — each one carrying a lifetime structural warranty.</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5★</div>
+          <div class="stat-info">
+            <h4>Average Google Rating</h4>
+            <p>9 out of 10 clients refer their neighbors before their own pool is even finished.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="about-cta">
-  <div class="about-cta-inner">
-    <p class="sec-eye">Ready to Build?</p>
-    <h2>Let's Talk About Your Pool.</h2>
-    <p>Free consultation, honest pricing, no pressure. Schedule a call or stop by our showroom in Boca Raton.</p>
-    <a href="index.html#contact" class="btn-accent">
-      Get Your Free Design Consultation
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+<!-- DARK PHOTO CTA -->
+<section id="about-photo-cta">
+  <div class="photo-cta-inner">
+    <div class="photo-cta-left">
+      <div class="photo-cta-eyebrow">
+        <div class="photo-cta-eyebrow-line"></div>
+        <span>Ready to Get Started?</span>
+        <div class="photo-cta-eyebrow-line"></div>
+      </div>
+      <h2>Ready to build the backyard<br>you've <em>always</em> wanted?</h2>
+      <ul class="check-list">
+        <li>
+          <div class="chk"><svg width="12" height="12" fill="none" stroke="#08090D" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span><strong>Experience unmatched craftsmanship:</strong> Our in-house crew has built 600+ pools — and they treat every yard like it's their own.</span>
+        </li>
+        <li>
+          <div class="chk"><svg width="12" height="12" fill="none" stroke="#08090D" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span><strong>Protect your home's value:</strong> A properly built pool adds 7–10% to South Florida property values. An improperly built one costs twice that to fix.</span>
+        </li>
+        <li>
+          <div class="chk"><svg width="12" height="12" fill="none" stroke="#08090D" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span><strong>Secure your spot:</strong> We limit our build calendar to protect quality. Summer slots fill fast — your consultation locks in your place in the queue.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="photo-cta-card">
+      <h3>Schedule Your Free Design Consultation</h3>
+      <p>Free — No Commitment</p>
+      <a href="index.html#contact" class="photo-cta-btn">
+        Get Started Today
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="margin-left:6px;vertical-align:middle"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
