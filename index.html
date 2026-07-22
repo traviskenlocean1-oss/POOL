@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aqualine Pools & Design | Custom Pool Builders in South Florida</title>
+<meta name="description" content="Aqualine Pools & Design — South Florida's premier custom pool builders. From bare earth to crystal-clear water. Free design consultation." />
+<link rel="canonical" href="https://aqualinepools.com/" />
+<meta property="og:title" content="Aqualine Pools & Design | Custom Pool Builders" />
+<meta property="og:description" content="Turn your backyard into paradise. South Florida's premier custom pool builders." />
+<meta property="og:type" content="website" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Aqualine Pools & Design","telephone":"+15615550190","address":{"@type":"PostalAddress","addressLocality":"Boca Raton","addressRegion":"FL","postalCode":"33431"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dk:#08090D;--dk2:#0D1117;--dk-card:#111520;
+  --accent:#0EB8F5;--accent-dk:#0899CC;
+  --gold:#C4972A;
+  --txt:#E4EAF0;--muted:#6B7A8D;
+  --bdr:rgba(255,255,255,.07);
+  /* light section tokens */
+  --lt:#F5F7FA;--lt2:#FFFFFF;
+  --txt-dk:#0F1218;--muted-dk:#4A5568;--bdr-lt:rgba(0,0,0,.08);
+  --r:10px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
+
+/* ── TRANSPARENT NAV ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  z-index:100;
+  /* always transparent — no scrolled class */
+  background:linear-gradient(to bottom,rgba(8,9,13,.55) 0%,transparent 100%);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+  font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.06em;
+  color:#fff;
+  opacity:.9;
+}
+.nav-logo svg{color:var(--accent)}
+.nav-phone{
+  display:flex;align-items:center;gap:8px;
+  color:#fff;text-decoration:none;
+  font-size:14px;font-weight:600;letter-spacing:.04em;
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.18);
+  padding:8px 18px;border-radius:50px;
+  transition:background .2s;
+}
+.nav-phone:hover{background:rgba(14,184,245,.25);border-color:var(--accent)}
+.nav-phone svg{color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(8,9,13,.97);backdrop-filter:blur(20px);padding:20px 32px 28px;z-index:99;border-bottom:1px solid var(--bdr)}
+.mob-nav.open{display:block}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.mob-nav a{color:var(--txt);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+
+/* ── SCRUB HERO ── */
+.scrub-wrap{position:relative;height:500vh}
+.scrub-pin{position:sticky;top:0;height:100vh;width:100%;overflow:hidden}
+.scrub-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scrub-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,9,13,.3) 0%,rgba(8,9,13,.05) 40%,rgba(8,9,13,.5) 100%)}
+.scrub-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px;pointer-events:none}
+.scrub-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;transition:opacity .5s}
+.scrub-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,9vw,120px);line-height:.9;letter-spacing:.02em;color:#fff;text-shadow:0 4px 40px rgba(0,0,0,.5);transition:opacity .5s}
+.scrub-sub{margin-top:20px;font-size:17px;color:rgba(255,255,255,.7);transition:opacity .5s}
+
+/* scroll hint */
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:11px;letter-spacing:.18em;text-transform:uppercase;animation:bounce 2s ease-in-out infinite;transition:opacity .4s;pointer-events:none}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-hint svg{color:var(--accent)}
+
+/* stage label */
+.stage-lbl{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,3vw,30px);letter-spacing:.22em;color:var(--accent);text-transform:uppercase;opacity:0;transition:opacity .4s;white-space:nowrap;pointer-events:none}
+
+/* progress bar */
+.scrub-bar{position:absolute;bottom:0;left:0;height:3px;background:var(--accent);width:0%;box-shadow:0 0 14px var(--accent);transition:width .04s linear}
+
+/* floating CTA */
+.hero-float-cta{position:absolute;bottom:36px;right:48px;pointer-events:all;display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:var(--accent);color:#08090D;border-radius:50px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:.02em;transition:background .2s,transform .2s,box-shadow .2s}
+.hero-float-cta:hover{background:var(--accent-dk);transform:translateY(-2px);box-shadow:0 8px 24px rgba(14,184,245,.4)}
+
+/* ── INTRO SECTION (dark) ── */
+#intro{background:var(--dk);padding:120px 48px}
+.intro-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro-left .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.intro-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5.5vw,80px);line-height:.95;letter-spacing:.02em;color:var(--txt);text-wrap:balance;margin-bottom:24px}
+.intro-left p{font-size:17px;color:var(--muted);line-height:1.75;margin-bottom:36px}
+.intro-img{position:relative;border-radius:12px;overflow:hidden}
+.intro-img img{width:100%;height:520px;object-fit:cover;display:block;border-radius:12px}
+.intro-img-badge{position:absolute;bottom:24px;left:24px;background:rgba(8,9,13,.85);backdrop-filter:blur(12px);border:1px solid rgba(14,184,245,.25);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:12px}
+.badge-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent);line-height:1}
+.badge-text{font-size:13px;color:rgba(228,234,240,.75);line-height:1.4}
+
+/* ── GALLERY PREVIEW (dark) ── */
+#gallery-preview{background:var(--dk2);padding:0 0 100px}
+.gal-pre-header{max-width:1200px;margin:0 auto;padding:80px 48px 48px}
+.gal-pre-header .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.gal-pre-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4.5vw,64px);line-height:1;letter-spacing:.02em;color:var(--txt)}
+.gal-strip{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:4px;max-width:1200px;margin:0 auto;padding:0 48px}
+.gal-strip .gi{overflow:hidden;border-radius:var(--r)}
+.gal-strip img{width:100%;height:340px;object-fit:cover;display:block;border-radius:var(--r);transition:transform .5s,filter .4s;filter:brightness(.82)}
+.gal-strip .gi:first-child img{height:440px}
+.gal-strip img:hover{transform:scale(1.04);filter:brightness(1)}
+
+/* ── PARALLAX FULL-BLEED ── */
+#parallax-sec{
+  height:100vh;
+  background-image:url('https://images.unsplash.com/photo-1761254088615-3feefa51fe8c?w=1800&q=85&fit=crop');
+  background-attachment:fixed;
+  background-size:cover;
+  background-position:center;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+#parallax-sec::before{content:'';position:absolute;inset:0;background:rgba(8,9,13,.5)}
+.parallax-content{position:relative;z-index:1;text-align:center;padding:0 24px}
+.parallax-content p{font-size:14px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.parallax-content h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,96px);line-height:.92;color:#fff;text-shadow:0 4px 40px rgba(0,0,0,.4);margin-bottom:28px;text-wrap:balance}
+.parallax-content a{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--accent);color:#08090D;border-radius:50px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;transition:background .2s,transform .2s}
+.parallax-content a:hover{background:var(--accent-dk);transform:translateY(-2px)}
+
+/* ── LIGHT SECTIONS ── */
+body.light-sec{background:var(--lt)}
+
+/* services */
+#services{background:var(--lt2);padding:100px 48px}
+#services .sec-inner{max-width:1200px;margin:0 auto}
+#services .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+#services h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,68px);line-height:1;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:16px}
+#services .sec-body{font-size:17px;color:var(--muted-dk);max-width:520px;margin-bottom:60px}
+.srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.srv-card{background:var(--lt);border:1px solid var(--bdr-lt);border-radius:12px;padding:40px;transition:box-shadow .3s,border-color .3s;cursor:default}
+.srv-card:hover{box-shadow:0 8px 32px rgba(14,184,245,.1);border-color:rgba(14,184,245,.25)}
+.srv-icon{width:48px;height:48px;background:rgba(14,184,245,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--accent)}
+.srv-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.04em;margin-bottom:10px;color:var(--txt-dk)}
+.srv-desc{font-size:15px;color:var(--muted-dk);line-height:1.65}
+
+/* process */
+#process{background:var(--lt);padding:100px 48px}
+#process .sec-inner{max-width:1200px;margin:0 auto}
+#process .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+#process h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,68px);line-height:1;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:16px}
+#process .sec-body{font-size:17px;color:var(--muted-dk);max-width:520px;margin-bottom:60px}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.proc-steps::before{content:'';position:absolute;top:27px;left:12%;right:12%;height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent)}
+.proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px}
+.step-num{width:54px;height:54px;border-radius:50%;background:rgba(14,184,245,.1);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent);margin-bottom:24px;position:relative;z-index:1}
+.step-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;margin-bottom:10px;color:var(--txt-dk)}
+.step-desc{font-size:14px;color:var(--muted-dk);line-height:1.6}
+
+/* testimonials */
+#testimonials{background:var(--lt2);padding:100px 48px}
+#testimonials .sec-inner{max-width:1200px;margin:0 auto}
+#testimonials .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+#testimonials h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,68px);line-height:1;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:60px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:var(--lt);border:1px solid var(--bdr-lt);border-radius:12px;padding:32px}
+.testi-stars{color:var(--gold);font-size:15px;letter-spacing:2px;margin-bottom:16px}
+.testi-text{font-size:15px;color:var(--muted-dk);line-height:1.7;margin-bottom:24px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.testi-name{font-weight:600;font-size:14px;color:var(--txt-dk)}
+.testi-loc{font-size:13px;color:var(--muted-dk)}
+
+/* contact / quote */
+#contact{background:var(--lt2);padding:100px 48px;border-top:1px solid var(--bdr-lt)}
+#contact .sec-inner{max-width:1200px;margin:0 auto}
+#contact .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+#contact h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,4.5vw,68px);line-height:1;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:60px}
+.contact-grid{display:grid;grid-template-columns:1fr 500px;gap:80px}
+.c-info h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.04em;margin-bottom:14px;color:var(--txt-dk)}
+.c-info p{font-size:15px;color:var(--muted-dk);line-height:1.7;margin-bottom:32px}
+.c-detail{display:flex;align-items:center;gap:14px;margin-bottom:18px;color:var(--txt-dk);text-decoration:none;font-size:15px;transition:color .2s}
+.c-detail:hover{color:var(--accent)}
+.c-ico{width:40px;height:40px;background:rgba(14,184,245,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.c-form{background:var(--lt);border:1px solid var(--bdr-lt);border-radius:12px;padding:40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-dk);margin-bottom:8px}
+.fg input,.fg select,.fg textarea{width:100%;background:#fff;border:1px solid var(--bdr-lt);border-radius:8px;padding:12px 16px;color:var(--txt-dk);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(14,184,245,.12)}
+.fg textarea{resize:vertical;min-height:110px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--accent);color:#08090D;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;border:none;font-family:'Inter',sans-serif;letter-spacing:.02em;transition:all .2s;width:100%;justify-content:center}
+.btn-primary:hover{background:var(--accent-dk);transform:translateY(-2px);box-shadow:0 8px 24px rgba(14,184,245,.3)}
+
+/* footer */
+footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32px}
+.foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-brand p{font-size:14px;color:var(--muted);line-height:1.7;margin-top:14px}
+.foot-col h4{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.foot-col a{font-size:14px;color:rgba(228,234,240,.55);text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:var(--txt)}
+.foot-btm{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .intro-inner{grid-template-columns:1fr;gap:48px}
+  .gal-strip{grid-template-columns:1fr 1fr;padding:0 24px}
+  .gal-strip .gi:first-child{grid-column:1/-1}
+  .srv-grid{grid-template-columns:1fr}
+  .proc-steps{grid-template-columns:1fr 1fr;gap:40px}
+  .proc-steps::before{display:none}
+  .testi-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  #nav{padding:0 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  #intro,.gal-pre-header,#services,#process,#testimonials,#contact,footer{padding-left:20px;padding-right:20px}
+  .scrub-wrap{height:350vh}
+  .hero-float-cta{right:20px;bottom:24px}
+  .gal-strip{padding:0 20px;grid-template-columns:1fr 1fr}
+  .proc-steps{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr}
+  .foot-btm{flex-direction:column;gap:10px;text-align:center}
+  #parallax-sec{background-attachment:scroll}
+}
+</style>
+</head>
+<body>
+
+<!-- TRANSPARENT NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+      <path d="M3 19c2.5-5 7-7 11-7s8.5 2 11 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M1 23c3-5 8-7 13-7s10 2 13 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
+      <circle cx="14" cy="8" r="4" stroke="currentColor" stroke-width="2.5"/>
+    </svg>
+    AQUALINE
+  </a>
+  <a href="tel:+15615550190" class="nav-phone">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16z"/></svg>
+    (561) 555-0190
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mob-nav">
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery-preview">Gallery</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Get a Quote</a></li>
+    <li><a href="tel:+15615550190">(561) 555-0190</a></li>
+  </ul>
+</div>
+
+<!-- SCROLL SCRUB HERO -->
+<section class="scrub-wrap" id="scrub-wrap">
+  <div class="scrub-pin">
+    <video class="scrub-video" id="scrub-video" src="pool-build.mp4" muted playsinline preload="auto" webkit-playsinline></video>
+    <div class="scrub-overlay"></div>
+    <div class="scrub-center" id="scrub-center">
+      <p class="scrub-eye" id="scrub-eye">South Florida's Premier Pool Builders</p>
+      <h1 class="scrub-h1" id="scrub-h1">SCROLL TO BUILD<br>YOUR BACKYARD</h1>
+      <p class="scrub-sub" id="scrub-sub">Watch your yard transform — from bare earth to paradise.</p>
+    </div>
+    <div class="scroll-hint" id="scroll-hint">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll
+    </div>
+    <div class="stage-lbl" id="stage-lbl"></div>
+    <div class="scrub-bar" id="scrub-bar"></div>
+    <a href="#contact" class="hero-float-cta">
+      Get a Free Quote
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- INTRO — HEADLINE + LED POOL PHOTO -->
+<section id="intro">
+  <div class="intro-inner">
+    <div class="intro-left">
+      <p class="sec-eye">Boca Raton, FL</p>
+      <h2>We Build More Than Pools. We Build Experiences.</h2>
+      <p>Every project starts with listening. We sit down with you, design around your yard, your lifestyle, and your budget — then we build it with the kind of craft that makes neighbors stop and stare.</p>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--accent);color:#08090D;border-radius:50px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;transition:background .2s;">
+        Start Your Free Consultation
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="intro-img">
+      <img src="https://images.unsplash.com/photo-1762637447266-38b3eb04f72c?w=800&q=85&fit=crop" alt="Luxury pool at night with LED lighting and palm trees" />
+      <div class="intro-img-badge">
+        <div class="badge-num">18+</div>
+        <div class="badge-text">Years building<br>in South Florida</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY PREVIEW -->
+<section id="gallery-preview">
+  <div class="gal-pre-header">
+    <p class="sec-eye">Our Work</p>
+    <h2>Every Pool, A Different Story.</h2>
+  </div>
+  <div class="gal-strip">
+    <div class="gi">
+      <img src="https://images.unsplash.com/photo-1762637447266-38b3eb04f72c?w=900&q=80&fit=crop" alt="Luxury pool at night with palm trees" loading="lazy" />
+    </div>
+    <div class="gi">
+      <img src="https://images.unsplash.com/photo-1716801408923-c2149294dad2?w=600&q=80&fit=crop" alt="Overhead view of swimming pool at night" loading="lazy" />
+    </div>
+    <div class="gi">
+      <img src="https://images.unsplash.com/photo-1761254088615-3feefa51fe8c?w=600&q=80&fit=crop" alt="Illuminated pool at night with palm trees" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- PARALLAX FULL-BLEED -->
+<section id="parallax-sec">
+  <div class="parallax-content">
+    <p>The Aqualine Promise</p>
+    <h2>Your Backyard.<br>Completely Transformed.</h2>
+    <a href="#contact">Schedule Your Free Design Call</a>
+  </div>
+</section>
+
+<!-- SERVICES — light bg -->
+<section id="services">
+  <div class="sec-inner">
+    <p class="sec-eye">What We Do</p>
+    <h2>Built to Impress.<br>Built to Last.</h2>
+    <p class="sec-body">From custom inground pools to complete backyard renovations — we handle every phase with precision and transparency.</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="srv-title">Custom Pool Design</div>
+        <p class="srv-desc">Every pool starts with your vision. Our designers work with you on shape, depth, finishes, and features — with a 3D preview before a single shovel breaks ground.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="srv-title">Pool Renovations</div>
+        <p class="srv-desc">Resurfacing, retiling, equipment upgrades, and full structural renovations — all managed under one team so you deal with one point of contact from start to finish.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+        </div>
+        <div class="srv-title">Water Features</div>
+        <p class="srv-desc">Waterfalls, grottos, sun shelves, LED lighting, and spa spillovers. We design features that add drama, ambiance, and real value to your outdoor space.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="srv-title">Maintenance Plans</div>
+        <p class="srv-desc">Weekly and monthly packages to keep your pool crystal clear year-round. Chemistry balancing, cleaning, equipment checks — handled so you just enjoy it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS — light bg -->
+<section id="process">
+  <div class="sec-inner">
+    <p class="sec-eye">How It Works</p>
+    <h2>From First Call to First Swim.</h2>
+    <p class="sec-body">A clear 4-step process so you always know what's happening — no surprises, no delays.</p>
+    <div class="proc-steps">
+      <div class="proc-step">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Design Consultation</h3>
+        <p class="step-desc">We visit your property, discuss your vision, and produce a full 3D rendering at zero cost.</p>
+      </div>
+      <div class="proc-step">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Permits & Planning</h3>
+        <p class="step-desc">We handle all county permits and HOA approvals. You don't lift a finger.</p>
+      </div>
+      <div class="proc-step">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Construction</h3>
+        <p class="step-desc">Our crew is on-site every day. Most builds complete in 6–10 weeks with daily photo updates.</p>
+      </div>
+      <div class="proc-step">
+        <div class="step-num">04</div>
+        <h3 class="step-title">Final Reveal</h3>
+        <p class="step-desc">We walk you through every feature and don't leave until you're 100% satisfied.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="sec-inner">
+    <p class="sec-eye">Reviews</p>
+    <h2>Don't Take Our Word for It.</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Aqualine turned our bare backyard into something out of a magazine. The crew was professional, on time, and cleaned up every day. We couldn't be happier."</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80&fit=crop&crop=face" alt="Jennifer M." class="testi-avatar" />
+          <div><div class="testi-name">Jennifer M.</div><div class="testi-loc">Boca Raton, FL</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"From the 3D design to the final walk-through — seamless. Our pool has a grotto and sun shelf exactly as we asked. Finished two weeks early."</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80&fit=crop&crop=face" alt="Marcus T." class="testi-avatar" />
+          <div><div class="testi-name">Marcus T.</div><div class="testi-loc">Palm Beach Gardens, FL</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"We had a 20-year-old pool that needed a full renovation. They resurfaced, retiled, and added a waterfall. Looks completely brand new. Worth every dollar."</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&fit=crop&crop=face" alt="Robert C." class="testi-avatar" />
+          <div><div class="testi-name">Robert C.</div><div class="testi-loc">Delray Beach, FL</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / QUOTE -->
+<section id="contact">
+  <div class="sec-inner">
+    <p class="sec-eye">Get a Quote</p>
+    <h2>Start Your Build Today.</h2>
+    <div class="contact-grid">
+      <div class="c-info">
+        <h3>Let's Talk About Your Pool</h3>
+        <p>Tell us about your project and we'll reach out within 24 hours to schedule your free in-person consultation. No pressure — just honest answers.</p>
+        <a href="tel:+15615550190" class="c-detail">
+          <div class="c-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16z"/></svg></div>
+          (561) 555-0190
+        </a>
+        <a href="mailto:info@aqualinepools.com" class="c-detail">
+          <div class="c-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          info@aqualinepools.com
+        </a>
+        <div class="c-detail">
+          <div class="c-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          4200 N Federal Hwy, Boca Raton, FL 33431
+        </div>
+        <div class="c-detail">
+          <div class="c-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          Mon–Fri 8am – 6pm EST
+        </div>
+      </div>
+      <form class="c-form" action="https://formspree.io/f/demo" method="POST">
+        <div class="form-row">
+          <div class="fg"><label for="fn">First Name</label><input type="text" id="fn" name="first_name" placeholder="John" required /></div>
+          <div class="fg"><label for="ln">Last Name</label><input type="text" id="ln" name="last_name" placeholder="Smith" required /></div>
+        </div>
+        <div class="fg"><label for="ph">Phone</label><input type="tel" id="ph" name="phone" placeholder="(561) 000-0000" required /></div>
+        <div class="fg"><label for="em">Email</label><input type="email" id="em" name="email" placeholder="john@email.com" required /></div>
+        <div class="fg">
+          <label for="pt">Project Type</label>
+          <select id="pt" name="project_type">
+            <option value="">Select a service...</option>
+            <option>New Pool Build</option>
+            <option>Pool Renovation</option>
+            <option>Water Feature</option>
+            <option>Maintenance Plan</option>
+          </select>
+        </div>
+        <div class="fg"><label for="msg">Tell Us About Your Project</label><textarea id="msg" name="message" placeholder="Pool size, budget, timeline, special features..."></textarea></div>
+        <button type="submit" class="btn-primary">
+          Submit Request
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <a href="#" class="nav-logo" style="display:inline-flex">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+          <path d="M3 19c2.5-5 7-7 11-7s8.5 2 11 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M1 23c3-5 8-7 13-7s10 2 13 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
+          <circle cx="14" cy="8" r="4" stroke="currentColor" stroke-width="2.5"/>
+        </svg>
+        AQUALINE
+      </a>
+      <p>South Florida's premier custom pool builders. Licensed & Insured. Serving Palm Beach, Broward, and Miami-Dade since 2008.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Custom Pool Design</a></li>
+        <li><a href="#services">Pool Renovations</a></li>
+        <li><a href="#services">Water Features</a></li>
+        <li><a href="#services">Maintenance Plans</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#gallery-preview">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+15615550190">(561) 555-0190</a></li>
+        <li><a href="mailto:info@aqualinepools.com">info@aqualinepools.com</a></li>
+        <li><a href="#">Boca Raton, FL 33431</a></li>
+        <li><a href="#">Mon–Fri 8am–6pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>© 2026 Aqualine Pools & Design. All rights reserved.</span>
+    <span>Licensed Pool Contractor · CBC1234567</span>
+  </div>
+</footer>
+
+<script>
+/* ── SCROLL SCRUBBING ── */
+const video   = document.getElementById('scrub-video');
+const wrap    = document.getElementById('scrub-wrap');
+const hint    = document.getElementById('scroll-hint');
+const lbl     = document.getElementById('stage-lbl');
+const bar     = document.getElementById('scrub-bar');
+const h1      = document.getElementById('scrub-h1');
+const sub     = document.getElementById('scrub-sub');
+const eye     = document.getElementById('scrub-eye');
+
+const stages = [
+  { at:0,    text:'' },
+  { at:0.04, text:'WE DIG' },
+  { at:0.28, text:'WE FRAME' },
+  { at:0.54, text:'WE REINFORCE' },
+  { at:0.80, text:'YOUR POOL IS READY' },
+];
+
+let prev='', raf=false;
+
+function prog() {
+  const t = wrap.offsetTop, h = wrap.offsetHeight, vh = window.innerHeight;
+  return Math.max(0, Math.min(1, (window.scrollY - t) / (h - vh)));
+}
+
+function tick() {
+  const p = prog();
+  if (video.readyState >= 2 && video.duration) video.currentTime = p * video.duration;
+  bar.style.width = (p * 100) + '%';
+  hint.style.opacity = p < 0.03 ? 1 : 0;
+  const fade = p < 0.08 ? 1 : Math.max(0, 1 - (p - 0.08) / 0.07);
+  h1.style.opacity = sub.style.opacity = eye.style.opacity = fade;
+  let active = '';
+  for (let i = stages.length-1; i >= 0; i--) { if (p >= stages[i].at) { active = stages[i].text; break; } }
+  if (active !== prev) {
+    prev = active;
+    lbl.textContent = active;
+    lbl.style.opacity = active && p > 0.06 ? 1 : 0;
+  }
+  raf = false;
+}
+
+window.addEventListener('scroll', () => { if (!raf) { raf=true; requestAnimationFrame(tick); } }, {passive:true});
+video.addEventListener('loadedmetadata', () => { video.currentTime = 0; });
+
+/* ── MOBILE MENU ── */
+const hamburger = document.getElementById('hamburger');
+const mobNav    = document.getElementById('mob-nav');
+hamburger.addEventListener('click', () => mobNav.classList.toggle('open'));
+mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobNav.classList.remove('open')));
+</script>
+</body>
+</html>
