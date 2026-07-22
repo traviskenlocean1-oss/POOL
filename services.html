@@ -31,40 +31,23 @@ html{scroll-behavior:smooth}
 body{background:var(--lt);color:var(--txt-dk);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
 
 /* ── NAV ── */
-#nav{
-  position:fixed;top:0;left:0;right:0;
-  height:68px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;
-  z-index:100;
-  background:linear-gradient(to bottom,rgba(8,9,13,.65) 0%,transparent 100%);
-}
-.nav-logo{
-  display:flex;align-items:center;
-  text-decoration:none;
-  background:rgba(255,255,255,.96);
-  border-radius:8px;
-  padding:5px 12px;
-}
-.nav-logo img{height:30px;width:auto;display:block}
-.nav-right{display:flex;align-items:center;gap:28px}
+#nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100;background:linear-gradient(to bottom,rgba(8,9,13,.6) 0%,transparent 100%);transition:background .35s,box-shadow .35s}
+#nav.scrolled{background:#fff;box-shadow:0 2px 24px rgba(0,0,0,.09)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;background:rgba(255,255,255,.96);border-radius:8px;padding:5px 14px;transition:background .35s,padding .35s}
+.nav-logo img{height:44px;width:auto;display:block}
+#nav.scrolled .nav-logo{background:transparent;padding:5px 0}
+.nav-right{display:flex;align-items:center;gap:20px;margin-left:auto}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{
-  font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
-  color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s;
-}
+.nav-links a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;transition:color .25s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-phone{
-  display:flex;align-items:center;gap:8px;
-  padding:9px 18px;border-radius:50px;
-  border:1px solid rgba(255,255,255,.22);
-  font-size:13px;font-weight:600;color:#fff;
-  text-decoration:none;letter-spacing:.02em;
-  transition:background .2s,border-color .2s;
-}
+#nav.scrolled .nav-links a{color:#1a2c3d}
+#nav.scrolled .nav-links a:hover,#nav.scrolled .nav-links a.active{color:var(--accent)}
+.nav-phone{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:50px;border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:600;color:#fff;text-decoration:none;letter-spacing:.02em;transition:background .25s,border-color .25s,color .25s}
 .nav-phone:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+#nav.scrolled .nav-phone{background:var(--accent);border-color:var(--accent);color:#fff}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+#nav.scrolled .hamburger span{background:#1a2c3d}
 .mob-nav{display:none;position:fixed;inset:0;background:var(--dk);z-index:99;padding:100px 32px 32px;flex-direction:column}
 .mob-nav.open{display:flex}
 .mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:24px}
@@ -80,7 +63,10 @@ body{background:var(--lt);color:var(--txt-dk);font-family:'Inter',sans-serif;fon
   background-position:center 40%;
   display:flex;align-items:center;justify-content:center;
   text-align:center;
+  overflow:hidden;
 }
+.hero-wave{position:absolute;bottom:-2px;left:0;right:0;z-index:2;line-height:0}
+.hero-wave svg{display:block;width:100%;height:auto}
 #srv-hero::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(to bottom,rgba(8,9,13,.5) 0%,rgba(8,9,13,.62) 60%,rgba(8,9,13,.75) 100%);
@@ -120,14 +106,14 @@ body{background:var(--lt);color:var(--txt-dk);font-family:'Inter',sans-serif;fon
 
 /* ── INTRO BAND ── */
 #srv-intro{
-  background:var(--dk);
+  background:var(--lt2);
   padding:80px 48px;
   text-align:center;
 }
 .srv-intro-inner{max-width:760px;margin:0 auto}
 .srv-intro-inner .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.srv-intro-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,58px);line-height:1;letter-spacing:.02em;color:var(--txt);margin-bottom:20px}
-.srv-intro-inner p{font-size:17px;color:var(--muted);line-height:1.75}
+.srv-intro-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,58px);line-height:1;letter-spacing:.02em;color:var(--txt-dk);margin-bottom:20px}
+.srv-intro-inner p{font-size:17px;color:var(--muted-dk);line-height:1.75}
 
 /* ── SERVICE CARDS ── */
 #services-grid{background:var(--lt2);padding:80px 48px 100px}
@@ -263,6 +249,14 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   <div class="srv-hero-scroll">
     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     Scroll
+  </div>
+  <!-- wavy bottom edge -->
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C200,110 400,20 600,65 C800,110 1050,15 1200,55 C1320,85 1400,40 1440,50 L1440,130 L0,130Z" fill="rgba(14,184,245,0.22)"/>
+      <path d="M0,80 C180,40 380,100 580,72 C780,44 1000,95 1200,68 C1330,52 1400,80 1440,90 L1440,130 L0,130Z" fill="rgba(14,184,245,0.38)"/>
+      <path d="M0,100 C220,65 440,118 660,95 C880,72 1100,112 1300,88 C1380,78 1420,100 1440,110 L1440,130 L0,130Z" fill="#fff"/>
+    </svg>
   </div>
 </section>
 
@@ -486,6 +480,8 @@ const hamburger = document.getElementById('hamburger');
 const mobNav    = document.getElementById('mob-nav');
 hamburger.addEventListener('click', () => mobNav.classList.toggle('open'));
 mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobNav.classList.remove('open')));
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 80); }, { passive: true });
 
 /* smooth scroll for anchor links on same page */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
