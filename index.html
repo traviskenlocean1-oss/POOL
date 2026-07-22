@@ -85,7 +85,11 @@ body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-s
 /* ── SCRUB HERO ── */
 .scrub-wrap{position:relative;height:500vh}
 .scrub-pin{position:sticky;top:0;height:100vh;width:100%;overflow:hidden}
-.scrub-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scrub-video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:translateZ(0);backface-visibility:hidden;
+  filter:contrast(1.08) saturate(1.14) brightness(1.04);
+}
 .scrub-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,9,13,.3) 0%,rgba(8,9,13,.05) 40%,rgba(8,9,13,.5) 100%)}
 .scrub-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px;pointer-events:none}
 .scrub-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;transition:opacity .5s}
@@ -874,7 +878,13 @@ tickGallery();
 
 /* ── SCROLLED NAV ── */
 const navEl = document.getElementById('nav');
-window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 80); }, { passive:true });
+const heroWrap = document.getElementById('scrub-wrap');
+function updateNav() {
+  const threshold = heroWrap.offsetTop + heroWrap.offsetHeight - window.innerHeight;
+  navEl.classList.toggle('scrolled', window.scrollY >= threshold);
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+window.addEventListener('resize', updateNav);
 
 /* ── MOBILE MENU ── */
 const hamburger = document.getElementById('hamburger');
