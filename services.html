@@ -40,11 +40,13 @@ body{background:var(--lt);color:var(--txt-dk);font-family:'Inter',sans-serif;fon
   background:linear-gradient(to bottom,rgba(8,9,13,.65) 0%,transparent 100%);
 }
 .nav-logo{
-  display:flex;align-items:center;gap:10px;
+  display:flex;align-items:center;
   text-decoration:none;
-  font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.06em;
-  color:#fff;opacity:.9;
+  background:rgba(255,255,255,.96);
+  border-radius:8px;
+  padding:5px 12px;
 }
+.nav-logo img{height:30px;width:auto;display:block}
 .nav-right{display:flex;align-items:center;gap:28px}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
 .nav-links a{
@@ -221,17 +223,12 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 <!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-      <path d="M3 19c2.5-5 7-7 11-7s8.5 2 11 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M1 23c3-5 8-7 13-7s10 2 13 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
-      <circle cx="14" cy="8" r="4" stroke="currentColor" stroke-width="2.5"/>
-    </svg>
-    AQUALINE
+    <img src="aqualine-logo.png" alt="Aqualine Pools & Design" />
   </a>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="index.html#gallery-preview">Gallery</a></li>
+      <li><a href="about.html">About Us</a></li>
       <li><a href="index.html#process">Process</a></li>
       <li><a href="index.html#contact">Get a Quote</a></li>
     </ul>
@@ -245,7 +242,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 <div class="mob-nav" id="mob-nav">
   <ul>
     <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#gallery-preview">Gallery</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="index.html#process">Process</a></li>
     <li><a href="index.html#contact">Get a Quote</a></li>
     <li><a href="tel:+15615550190">(561) 555-0190</a></li>
@@ -442,13 +439,8 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 <footer>
   <div class="foot-inner">
     <div class="foot-brand">
-      <a href="index.html" class="nav-logo" style="font-size:20px;color:var(--txt);opacity:.9">
-        <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
-          <path d="M3 19c2.5-5 7-7 11-7s8.5 2 11 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M1 23c3-5 8-7 13-7s10 2 13 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".4"/>
-          <circle cx="14" cy="8" r="4" stroke="currentColor" stroke-width="2.5"/>
-        </svg>
-        AQUALINE
+      <a href="index.html" class="nav-logo">
+        <img src="aqualine-logo.png" alt="Aqualine Pools & Design" />
       </a>
       <p>South Florida's premier custom pool builders. Serving Boca Raton, Delray Beach, Palm Beach Gardens, and surrounding communities since 2007.</p>
     </div>
@@ -457,7 +449,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="index.html#gallery-preview">Gallery</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="index.html#process">Our Process</a></li>
         <li><a href="index.html#contact">Get a Quote</a></li>
       </ul>
