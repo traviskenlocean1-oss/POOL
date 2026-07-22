@@ -94,11 +94,11 @@ body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-s
 .hero-float-cta:hover{background:var(--accent-dk);transform:translateY(-2px);box-shadow:0 8px 24px rgba(14,184,245,.4)}
 
 /* ── INTRO SECTION (dark) ── */
-#intro{background:var(--dk);padding:120px 48px}
+#intro{background:var(--lt2);padding:120px 48px}
 .intro-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .intro-left .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.intro-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5.5vw,80px);line-height:.95;letter-spacing:.02em;color:var(--txt);text-wrap:balance;margin-bottom:24px}
-.intro-left p{font-size:17px;color:var(--muted);line-height:1.75;margin-bottom:36px}
+.intro-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5.5vw,80px);line-height:.95;letter-spacing:.02em;color:var(--txt-dk);text-wrap:balance;margin-bottom:24px}
+.intro-left p{font-size:17px;color:var(--muted-dk);line-height:1.75;margin-bottom:36px}
 .intro-img{position:relative;border-radius:12px;overflow:hidden}
 .intro-img img{width:100%;height:520px;object-fit:cover;display:block;border-radius:12px}
 .intro-img-badge{position:absolute;bottom:24px;left:24px;background:rgba(8,9,13,.85);backdrop-filter:blur(12px);border:1px solid rgba(14,184,245,.25);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:12px}
@@ -110,11 +110,13 @@ body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-s
 .gal-pre-header{max-width:1200px;margin:0 auto;padding:80px 48px 48px}
 .gal-pre-header .sec-eye{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
 .gal-pre-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4.5vw,64px);line-height:1;letter-spacing:.02em;color:var(--txt)}
-.gal-strip{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:4px;max-width:1200px;margin:0 auto;padding:0 48px}
-.gal-strip .gi{overflow:hidden;border-radius:var(--r)}
-.gal-strip img{width:100%;height:340px;object-fit:cover;display:block;border-radius:var(--r);transition:transform .5s,filter .4s;filter:brightness(.82)}
-.gal-strip .gi:first-child img{height:440px}
-.gal-strip img:hover{transform:scale(1.04);filter:brightness(1)}
+.gal-hero{max-width:1200px;margin:0 auto 6px;padding:0 48px}
+.gal-hero img{width:100%;height:520px;object-fit:cover;border-radius:var(--r);display:block;filter:brightness(.9);transition:filter .4s}
+.gal-hero img:hover{filter:brightness(1)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:1200px;margin:0 auto;padding:0 48px}
+.gal-grid .gi{overflow:hidden;border-radius:var(--r)}
+.gal-grid img{width:100%;height:260px;object-fit:cover;display:block;filter:brightness(.85);transition:transform .5s,filter .4s}
+.gal-grid img:hover{transform:scale(1.04);filter:brightness(1)}
 
 /* ── PARALLAX FULL-BLEED ── */
 #parallax-sec{
@@ -210,8 +212,9 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .intro-inner{grid-template-columns:1fr;gap:48px}
-  .gal-strip{grid-template-columns:1fr 1fr;padding:0 24px}
-  .gal-strip .gi:first-child{grid-column:1/-1}
+  .gal-hero,.gal-grid{padding:0 24px}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .gal-hero img{height:380px}
   .srv-grid{grid-template-columns:1fr}
   .proc-steps{grid-template-columns:1fr 1fr;gap:40px}
   .proc-steps::before{display:none}
@@ -226,7 +229,9 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   #intro,.gal-pre-header,#services,#process,#testimonials,#contact,footer{padding-left:20px;padding-right:20px}
   .scrub-wrap{height:350vh}
   .hero-float-cta{right:20px;bottom:24px}
-  .gal-strip{padding:0 20px;grid-template-columns:1fr 1fr}
+  .gal-hero,.gal-grid{padding:0 20px}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .gal-hero img{height:280px}
   .proc-steps{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .foot-inner{grid-template-columns:1fr}
@@ -314,16 +319,16 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
     <p class="sec-eye">Our Work</p>
     <h2>Every Pool, A Different Story.</h2>
   </div>
-  <div class="gal-strip">
-    <div class="gi">
-      <img src="https://images.unsplash.com/photo-1762637447266-38b3eb04f72c?w=900&q=80&fit=crop" alt="Luxury pool at night with palm trees" loading="lazy" />
-    </div>
-    <div class="gi">
-      <img src="https://images.unsplash.com/photo-1716801408923-c2149294dad2?w=600&q=80&fit=crop" alt="Overhead view of swimming pool at night" loading="lazy" />
-    </div>
-    <div class="gi">
-      <img src="https://images.unsplash.com/photo-1761254088615-3feefa51fe8c?w=600&q=80&fit=crop" alt="Illuminated pool at night with palm trees" loading="lazy" />
-    </div>
+  <div class="gal-hero">
+    <img src="https://images.unsplash.com/photo-1743167548878-6069e48779c1?w=1400&q=85&fit=crop&crop=center" alt="Luxurious backyard pool with lush green lawn" loading="lazy" />
+  </div>
+  <div class="gal-grid">
+    <div class="gi"><img src="https://images.unsplash.com/photo-1782203601089-55f664badd93?w=700&q=80&fit=crop" alt="Poolside with spa, lounge chairs and tropical flowers" loading="lazy" /></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1578980956533-d240f83c436b?w=700&q=80&fit=crop" alt="Classic Adirondack chairs beside a sparkling pool" loading="lazy" /></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1783125126717-e9c855c86a63?w=700&q=80&fit=crop" alt="Modern patio with pool and outdoor kitchen" loading="lazy" /></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1635108201418-0996823f4cc3?w=700&q=80&fit=crop" alt="Custom inground pool with home backdrop" loading="lazy" /></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1758530273444-4050368c6f4d?w=700&q=80&fit=crop" alt="Relaxing poolside lounge with shade umbrella" loading="lazy" /></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?w=700&q=80&fit=crop" alt="Elegant resort-style pool with clean architectural lines" loading="lazy" /></div>
   </div>
 </section>
 
