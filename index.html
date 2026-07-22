@@ -89,6 +89,47 @@ body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-s
 /* progress bar */
 .scrub-bar{position:absolute;bottom:0;left:0;height:3px;background:var(--accent);width:0%;box-shadow:0 0 14px var(--accent);transition:width .04s linear}
 
+/* final reveal — appears at end of animation */
+#final-reveal{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 24px;
+  background:rgba(8,9,13,.55);
+  opacity:0;pointer-events:none;
+}
+.fr-eye{
+  font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:22px;
+  opacity:0;transform:translateY(18px);transition:opacity .5s .05s,transform .5s .05s;
+}
+.fr-heading{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(72px,13vw,170px);line-height:.88;letter-spacing:.02em;
+  color:#fff;text-shadow:0 6px 60px rgba(0,0,0,.55);text-wrap:balance;
+  opacity:0;transform:translateY(28px);transition:opacity .65s .12s,transform .65s .12s;
+}
+.fr-divider{
+  width:60px;height:2px;background:var(--accent);margin:28px auto;
+  opacity:0;transform:scaleX(0);transform-origin:left;transition:opacity .4s .28s,transform .5s .28s;
+}
+.fr-sub{
+  font-size:17px;color:rgba(228,234,240,.72);letter-spacing:.04em;
+  opacity:0;transform:translateY(14px);transition:opacity .5s .34s,transform .5s .34s;
+}
+.fr-cta{
+  margin-top:38px;display:inline-flex;align-items:center;gap:8px;
+  padding:15px 38px;background:var(--accent);color:#08090D;
+  border-radius:50px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;
+  text-decoration:none;letter-spacing:.02em;
+  opacity:0;transform:translateY(14px);transition:opacity .5s .44s,transform .5s .44s,background .2s,box-shadow .2s;
+}
+.fr-cta:hover{background:var(--accent-dk);box-shadow:0 8px 28px rgba(14,184,245,.35);transform:translateY(12px)}
+#final-reveal.active .fr-eye,
+#final-reveal.active .fr-heading,
+#final-reveal.active .fr-sub,
+#final-reveal.active .fr-cta{opacity:1;transform:translateY(0)}
+#final-reveal.active .fr-divider{opacity:1;transform:scaleX(1)}
+
 /* floating CTA */
 .hero-float-cta{position:absolute;bottom:36px;right:48px;pointer-events:all;display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:var(--accent);color:#08090D;border-radius:50px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:.02em;transition:background .2s,transform .2s,box-shadow .2s}
 .hero-float-cta:hover{background:var(--accent-dk);transform:translateY(-2px);box-shadow:0 8px 24px rgba(14,184,245,.4)}
@@ -284,6 +325,16 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
     </div>
     <div class="stage-lbl" id="stage-lbl"></div>
     <div class="scrub-bar" id="scrub-bar"></div>
+    <div id="final-reveal">
+      <p class="fr-eye">Aqualine Pools &amp; Design — Boca Raton, FL</p>
+      <h2 class="fr-heading">YOUR POOL.<br>YOUR PARADISE.</h2>
+      <div class="fr-divider"></div>
+      <p class="fr-sub">South Florida's Premier Custom Pool Builders</p>
+      <a href="#contact" class="fr-cta">
+        Schedule Your Free Design Call
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
     <a href="#contact" class="hero-float-cta">
       Get a Free Quote
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -553,6 +604,7 @@ const wrap    = document.getElementById('scrub-wrap');
 const hint    = document.getElementById('scroll-hint');
 const lbl     = document.getElementById('stage-lbl');
 const bar     = document.getElementById('scrub-bar');
+const reveal  = document.getElementById('final-reveal');
 const h1      = document.getElementById('scrub-h1');
 const sub     = document.getElementById('scrub-sub');
 const eye     = document.getElementById('scrub-eye');
@@ -586,6 +638,12 @@ function tick() {
     lbl.textContent = active;
     lbl.style.opacity = active && p > 0.06 ? 1 : 0;
   }
+  // final reveal: fades in at p >= 0.88, stage label fades out simultaneously
+  const rp = Math.max(0, Math.min(1, (p - 0.88) / 0.08));
+  reveal.style.opacity = rp;
+  reveal.style.pointerEvents = rp > 0.5 ? 'all' : 'none';
+  if (p >= 0.88) { reveal.classList.add('active'); lbl.style.opacity = 0; }
+  else { reveal.classList.remove('active'); }
   raf = false;
 }
 
