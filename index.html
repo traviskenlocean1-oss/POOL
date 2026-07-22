@@ -31,27 +31,35 @@
 html{scroll-behavior:smooth}
 body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
 
-/* ── TRANSPARENT NAV ── */
+/* ── NAV ── */
 #nav{
   position:fixed;top:0;left:0;right:0;
-  height:68px;
+  height:72px;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 48px;
   z-index:100;
-  /* always transparent — no scrolled class */
   background:linear-gradient(to bottom,rgba(8,9,13,.55) 0%,transparent 100%);
+  transition:background .35s ease, box-shadow .35s ease;
+}
+#nav.scrolled{
+  background:#fff;
+  box-shadow:0 2px 24px rgba(0,0,0,.09);
 }
 .nav-logo{
   display:flex;align-items:center;
   text-decoration:none;
   background:rgba(255,255,255,.96);
   border-radius:8px;
-  padding:5px 12px;
+  padding:5px 14px;
+  transition:background .35s, padding .35s;
 }
-.nav-logo img{height:30px;width:auto;display:block}
+.nav-logo img{height:44px;width:auto;display:block}
+#nav.scrolled .nav-logo{background:transparent;padding:5px 0}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s}
+.nav-links a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;transition:color .25s}
 .nav-links a:hover{color:#fff}
+#nav.scrolled .nav-links a{color:#1a2c3d}
+#nav.scrolled .nav-links a:hover{color:var(--accent)}
 .nav-phone{
   display:flex;align-items:center;gap:8px;
   color:#fff;text-decoration:none;
@@ -60,12 +68,15 @@ body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-s
   backdrop-filter:blur(8px);
   border:1px solid rgba(255,255,255,.18);
   padding:8px 18px;border-radius:50px;
-  transition:background .2s;
+  transition:background .25s, border-color .25s, color .25s;
 }
 .nav-phone:hover{background:rgba(14,184,245,.25);border-color:var(--accent)}
-.nav-phone svg{color:var(--accent)}
+.nav-phone svg{color:var(--accent);transition:color .25s}
+#nav.scrolled .nav-phone{background:var(--accent);border-color:var(--accent);color:#fff}
+#nav.scrolled .nav-phone svg{color:#fff}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:background .25s}
+#nav.scrolled .hamburger span{background:#1a2c3d}
 .mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(8,9,13,.97);backdrop-filter:blur(20px);padding:20px 32px 28px;z-index:99;border-bottom:1px solid var(--bdr)}
 .mob-nav.open{display:block}
 .mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:18px}
@@ -860,6 +871,10 @@ function tickGallery() {
 window.addEventListener('scroll', tickGallery, { passive: true });
 window.addEventListener('resize', tickGallery);
 tickGallery();
+
+/* ── SCROLLED NAV ── */
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 80); }, { passive:true });
 
 /* ── MOBILE MENU ── */
 const hamburger = document.getElementById('hamburger');
