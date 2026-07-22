@@ -27,17 +27,23 @@ html{scroll-behavior:smooth}
 body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
 
 /* ── NAV ── */
-#nav{position:fixed;top:0;left:0;right:0;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100;background:linear-gradient(to bottom,rgba(8,9,13,.65) 0%,transparent 100%)}
-.nav-logo{display:flex;align-items:center;text-decoration:none;background:rgba(255,255,255,.96);border-radius:8px;padding:5px 12px}
-.nav-logo img{height:30px;width:auto;display:block}
+#nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100;background:linear-gradient(to bottom,rgba(8,9,13,.6) 0%,transparent 100%);transition:background .35s,box-shadow .35s}
+#nav.scrolled{background:#fff;box-shadow:0 2px 24px rgba(0,0,0,.09)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;background:rgba(255,255,255,.96);border-radius:8px;padding:5px 14px;transition:background .35s,padding .35s}
+.nav-logo img{height:44px;width:auto;display:block}
+#nav.scrolled .nav-logo{background:transparent;padding:5px 0}
 .nav-right{display:flex;align-items:center;gap:20px;margin-left:auto}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s}
+.nav-links a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;transition:color .25s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-phone{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:50px;border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:600;color:#fff;text-decoration:none;letter-spacing:.02em;transition:background .2s,border-color .2s}
+#nav.scrolled .nav-links a{color:#1a2c3d}
+#nav.scrolled .nav-links a:hover,#nav.scrolled .nav-links a.active{color:var(--accent)}
+.nav-phone{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:50px;border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:600;color:#fff;text-decoration:none;letter-spacing:.02em;transition:background .25s,border-color .25s,color .25s}
 .nav-phone:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+#nav.scrolled .nav-phone{background:var(--accent);border-color:var(--accent);color:#fff}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:background .25s}
+#nav.scrolled .hamburger span{background:#1a2c3d}
 .mob-nav{display:none;position:fixed;inset:0;background:var(--dk);z-index:99;padding:100px 32px 32px;flex-direction:column}
 .mob-nav.open{display:flex}
 .mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:24px}
@@ -46,16 +52,20 @@ body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;fo
 
 /* ── ABOUT HERO ── */
 #about-hero{
-  position:relative;height:80vh;min-height:560px;
+  position:relative;height:82vh;min-height:580px;
   background-image:url('aqualine-family-pool-hero.png');
   background-size:cover;background-position:center 30%;
   display:flex;align-items:center;justify-content:center;text-align:center;
+  overflow:hidden;
 }
-#about-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,9,13,.55) 0%,rgba(8,9,13,.7) 100%)}
-.about-hero-inner{position:relative;z-index:1;padding:0 24px;max-width:800px;margin:0 auto}
+#about-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,9,13,.5) 0%,rgba(6,28,46,.75) 100%);z-index:1}
+.about-hero-inner{position:relative;z-index:2;padding:0 24px;max-width:800px;margin:0 auto}
 .about-eye{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
 .about-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,10vw,130px);line-height:.88;letter-spacing:.02em;color:#fff;text-shadow:0 6px 50px rgba(0,0,0,.5);margin-bottom:24px;text-wrap:balance}
 .about-sub{font-size:18px;color:rgba(228,234,240,.72);line-height:1.65;max-width:520px;margin:0 auto}
+/* wavy bottom edge */
+.hero-wave{position:absolute;bottom:-2px;left:0;right:0;z-index:2;line-height:0}
+.hero-wave svg{display:block;width:100%;height:auto}
 
 /* ── STORY SECTION ── */
 #about-story{background:var(--lt2);padding:96px 48px}
@@ -167,19 +177,29 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
     <h1 class="about-h1">BUILT ON<br>TRUST.</h1>
     <p class="about-sub">18 years. 600+ pools. One standard — exceptional craftsmanship from the first phone call to the final reveal.</p>
   </div>
+  <!-- wavy bottom edge like Reyes Pool Service -->
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C200,110 400,20 600,65 C800,110 1050,15 1200,55 C1320,85 1400,40 1440,50 L1440,130 L0,130Z" fill="rgba(14,184,245,0.22)"/>
+      <path d="M0,80 C180,40 380,100 580,72 C780,44 1000,95 1200,68 C1330,52 1400,80 1440,90 L1440,130 L0,130Z" fill="rgba(14,184,245,0.38)"/>
+      <path d="M0,100 C220,65 440,118 660,95 C880,72 1100,112 1300,88 C1380,78 1420,100 1440,110 L1440,130 L0,130Z" fill="#fff"/>
+    </svg>
+  </div>
 </section>
 
 <!-- STORY -->
 <section id="about-story">
   <div class="story-inner">
     <div class="story-img">
-      <img src="https://images.unsplash.com/photo-1743167548878-6069e48779c1?w=900&q=85&fit=crop" alt="Luxury pool build by Aqualine" loading="lazy" />
+      <img src="aqualine-about-us-photo.png" alt="Aqualine Pools team and completed pool build" loading="lazy" />
     </div>
     <div class="story-text">
       <p class="sec-eye">Who We Are</p>
-      <h2>More Content Coming Soon</h2>
-      <p>This section will contain the full Aqualine story — the founding, the team's background, what drives the business, and what makes it different from every other pool company in South Florida.</p>
-      <p>Tell us what you want to say here and we'll write it up exactly how you want it.</p>
+      <h2>Built From The Ground Up — Literally.</h2>
+      <p>Aqualine started in 2008 with a truck, a set of tools, and a frustration. Our founder had watched too many South Florida homeowners get handed off to subcontractors who'd never even met the person who sold them the job. Pools would come back wrong — rough plaster, equipment installed backwards, timelines missed by months — and nobody would own it. He decided to build something different: a company where the people who sell you the pool are the people who build it.</p>
+      <p>Eighteen years later, that hasn't changed. Our gunite crew, tile and coping teams, and equipment installers have been with us for years — some since day one. When you sign with Aqualine, you get a dedicated project manager who gives you their direct number on day one. You'll hear from them every week, whether there's an update or not. Most of our clients say that communication alone is what sets us apart from every other builder they interviewed.</p>
+      <p>We've built over 600 pools across Palm Beach, Broward, and Miami-Dade — 12×24 plunge pools on tight urban lots, multi-feature resort builds with grottos, fire bowls, and full smart-home automation, and everything in between. What we haven't done is sacrifice quality for volume. We take on the number of projects we can actually manage with our own hands. That decision costs us revenue. It's exactly why 9 out of 10 of our clients refer their neighbors before their own pool is even finished.</p>
+      <p>Every Aqualine pool comes with a lifetime structural warranty on the shell. Not 10 years. Not "limited." Lifetime. We back it because we built it right the first time — and in 18 years of operation, that promise has never cost us more than we could stand behind.</p>
     </div>
   </div>
 </section>
@@ -312,6 +332,9 @@ const hamburger = document.getElementById('hamburger');
 const mobNav    = document.getElementById('mob-nav');
 hamburger.addEventListener('click', () => mobNav.classList.toggle('open'));
 mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobNav.classList.remove('open')));
+
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 80); }, { passive: true });
 </script>
 </body>
 </html>
