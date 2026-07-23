@@ -1,0 +1,71 @@
+/* ── SHARED AQUA WAVE CTA SNIPPET ──
+   Paste this <section> before </body> on every service sub-page
+   ─────────────────────────────────────────────────────────────
+   CSS vars needed:
+   --accent: #0EB8F5   --accent-dk: #0899CC
+   --dk: #08090D
+*/
+
+/* === GLOBAL SHARED STYLES FOR ALL SERVICE PAGES === */
+
+/* Back nav */
+.back-bar {
+  background: #fff;
+  padding: 18px 48px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.back-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 600; color: #4A5568;
+  text-decoration: none; letter-spacing: .04em;
+  text-transform: uppercase; transition: color .2s;
+}
+.back-link:hover { color: var(--accent); }
+.back-link svg { transition: transform .2s; }
+.back-link:hover svg { transform: translateX(-3px); }
+
+/* Aqua wave CTA */
+.aqua-cta {
+  position: relative;
+  background: linear-gradient(135deg, #0EB8F5 0%, #0899CC 40%, #0576A0 100%);
+  padding: 100px 48px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+.aqua-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(255,255,255,.12) 0%, transparent 70%);
+}
+.aqua-wave-top {
+  position: absolute; top: -2px; left: 0; right: 0;
+  z-index: 1; line-height: 0;
+}
+.aqua-wave-top svg { display: block; width: 100%; height: auto; }
+.aqua-cta-inner {
+  position: relative; z-index: 2;
+  max-width: 780px; margin: 0 auto;
+}
+.aqua-cta-inner h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: .95; letter-spacing: .02em;
+  color: #fff; margin-bottom: 20px;
+  text-shadow: 0 4px 24px rgba(0,0,0,.2);
+}
+.aqua-cta-inner p {
+  font-size: 19px; color: rgba(255,255,255,.88);
+  line-height: 1.7; margin-bottom: 40px;
+}
+.btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 18px 44px; background: #fff; color: #0899CC;
+  border-radius: 50px; font-size: 16px; font-weight: 700;
+  text-decoration: none; letter-spacing: .02em;
+  box-shadow: 0 8px 32px rgba(0,0,0,.15);
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0,0,0,.22);
+}
