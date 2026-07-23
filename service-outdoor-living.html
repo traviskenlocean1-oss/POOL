@@ -27,6 +27,14 @@ body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;fo
 #nav.scrolled .nav-links a:hover{color:var(--accent)}
 .nav-phone{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:50px;background:var(--accent);font-size:13px;font-weight:700;color:#08090D;text-decoration:none;transition:background .2s}
 .nav-phone:hover{background:var(--accent-dk)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:background .25s}
+#nav.scrolled .hamburger span{background:#1a2c3d}
+.mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(8,9,13,.97);backdrop-filter:blur(20px);padding:20px 32px 28px;z-index:99;border-bottom:1px solid var(--bdr)}
+.mob-nav.open{display:block}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.mob-nav a{color:var(--txt);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.mob-nav a:hover{color:var(--accent)}
 .nav-item{position:relative;list-style:none}
 .nav-dropdown{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border-radius:12px;box-shadow:0 12px 48px rgba(0,0,0,.16);padding:8px;min-width:230px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s;border:1px solid rgba(0,0,0,.07);z-index:200}
 .nav-dropdown::before{content:'';position:absolute;top:-16px;left:0;right:0;height:16px;background:transparent}
@@ -81,7 +89,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:72px 64px 40
 .foot-col a:hover{color:var(--txt)}
 .foot-btm{max-width:1400px;margin:0 auto;padding-top:28px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
 @media(max-width:1024px){.feat-cards{grid-template-columns:1fr}.split-inner{grid-template-columns:1fr;gap:48px}.foot-inner{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){#nav{padding:0 20px}.nav-links,.nav-phone{display:none}.back-bar,#feat-grid,#split,footer{padding-left:20px;padding-right:20px}.hero-inner{padding:0 20px 60px}.fc{padding:36px 28px}.foot-inner{grid-template-columns:1fr}.foot-btm{flex-direction:column;gap:10px;text-align:center}}
+@media(max-width:768px){#nav{padding:0 20px}.nav-links,.nav-phone{display:none}.hamburger{display:flex}.back-bar,#feat-grid,#split,footer{padding-left:20px;padding-right:20px}.hero-inner{padding:0 20px 60px}.fc{padding:36px 28px}.foot-inner{grid-template-columns:1fr}.foot-btm{flex-direction:column;gap:10px;text-align:center}}
 </style>
 </head>
 <body>
@@ -104,8 +112,17 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:72px 64px 40
       <li><a href="contact.html">Get a Quote</a></li>
     </ul>
     <a href="tel:+15615550190" class="nav-phone">(561) 555-0190</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mob-nav" id="mob-nav">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Get a Quote</a></li>
+    <li><a href="tel:+15615550190">(561) 555-0190</a></li>
+  </ul>
+</div>
 <div class="back-bar">
   <a href="services.html" class="back-link">
     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
@@ -179,6 +196,13 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:72px 64px 40
   </div>
   <div class="foot-btm"><span>&copy; 2026 Aqualine Pools & Design. All rights reserved.</span><span>Boca Raton, FL 33431</span></div>
 </footer>
-<script>const navEl=document.getElementById('nav');window.addEventListener('scroll',()=>{navEl.classList.toggle('scrolled',window.scrollY>80);},{passive:true});</script>
+<script>
+const navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>{navEl.classList.toggle('scrolled',window.scrollY>80);},{passive:true});
+const hamburger=document.getElementById('hamburger');
+const mobNav=document.getElementById('mob-nav');
+hamburger.addEventListener('click',()=>mobNav.classList.toggle('open'));
+mobNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobNav.classList.remove('open')));
+</script>
 </body>
 </html>

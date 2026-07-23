@@ -45,10 +45,10 @@ body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;fo
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:background .25s}
 #nav.scrolled .hamburger span{background:#1a2c3d}
-.mob-nav{display:none;position:fixed;inset:0;background:var(--dk);z-index:99;padding:100px 32px 32px;flex-direction:column}
-.mob-nav.open{display:flex}
-.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:24px}
-.mob-nav a{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--txt);text-decoration:none;letter-spacing:.06em;transition:color .2s}
+.mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(8,9,13,.97);backdrop-filter:blur(20px);padding:20px 32px 28px;z-index:99;border-bottom:1px solid var(--bdr)}
+.mob-nav.open{display:block}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.mob-nav a{color:var(--txt);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
 .mob-nav a:hover{color:var(--accent)}
 
 /* ── ABOUT HERO ── */

@@ -414,7 +414,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 <!-- SCROLL SCRUB HERO -->
 <section class="scrub-wrap" id="scrub-wrap">
   <div class="scrub-pin">
-    <video class="scrub-video" id="scrub-video" src="pool-build.mp4" muted playsinline preload="auto" webkit-playsinline></video>
+    <video class="scrub-video" id="scrub-video" src="pool-build.mp4" poster="aqualine-pool-during-construction.png" muted playsinline preload="auto" webkit-playsinline></video>
     <div class="scrub-overlay"></div>
     <div class="scrub-center" id="scrub-center">
       <p class="scrub-eye" id="scrub-eye">South Florida's Premier Pool Builders</p>
@@ -876,6 +876,20 @@ function tick() {
 
 window.addEventListener('scroll', () => { if (!raf) { raf=true; requestAnimationFrame(tick); } }, {passive:true});
 video.addEventListener('loadedmetadata', () => { video.currentTime = 0; });
+
+// iOS Safari (and some mobile browsers) never decode a muted video's frames
+// until playback has actually started once - without this, programmatic
+// currentTime scrubbing just renders black. Warm it up on first touch/scroll.
+let videoWarmed = false;
+function warmUpVideo() {
+  if (videoWarmed) return;
+  videoWarmed = true;
+  const p = video.play();
+  if (p && p.then) p.then(() => video.pause()).catch(() => {});
+  else video.pause();
+}
+window.addEventListener('touchstart', warmUpVideo, { passive: true, once: true });
+window.addEventListener('scroll', warmUpVideo, { passive: true, once: true });
 
 /* ── HORIZONTAL SCROLL GALLERY ── */
 const galWrap  = document.getElementById('gal-scroll-wrap');
