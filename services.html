@@ -198,6 +198,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   transition:opacity .2s,transform .2s,visibility .2s;
   border:1px solid rgba(0,0,0,.07);z-index:200;
 }
+.nav-dropdown::before{content:'';position:absolute;top:-16px;left:0;right:0;height:16px;background:transparent;z-index:-1}
 .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0)}
 .nav-dropdown a{display:block;padding:9px 14px;font-size:12px;font-weight:500;color:#1a2c3d;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;border-radius:8px;transition:background .15s,color .15s}
 .nav-dropdown a:hover{background:rgba(14,184,245,.1);color:var(--accent)}
@@ -218,7 +219,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 
 /* ── ALTERNATING SERVICE CARDS ── */
 .sg-grid{display:flex;flex-direction:column;gap:24px}
-.sg-card{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--bdr-lt);background:var(--lt);transition:box-shadow .3s,transform .3s;min-height:400px}
+.sg-card{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;/* border removed */transition:box-shadow .3s,transform .3s;min-height:400px}
 .sg-card:hover{box-shadow:0 16px 60px rgba(14,184,245,.1);transform:translateY(-2px)}
 .sg-content{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
 .sg-photo-wrap{position:relative;overflow:hidden}
@@ -381,7 +382,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
             <li>Tile, coping &amp; finish selection + installation</li>
             <li>Equipment installation &amp; startup walkthrough</li>
           </ul>
-          <a href="index.html#contact" class="sg-link">Get a design quote <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="service-custom-pool-design.html" class="sg-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="sg-photo-wrap">
           <img src="aqualine-pool-finished.png" alt="Custom pool build — finished result" loading="lazy" />
@@ -402,7 +403,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
             <li>Equipment upgrades: pumps, filters, heaters</li>
             <li>New plumbing, LED lighting &amp; bonding</li>
           </ul>
-          <a href="index.html#contact" class="sg-link">Get a renovation quote <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="service-pool-renovations.html" class="sg-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="sg-photo-wrap">
           <img src="aqualine-pool-during-construction.png" alt="Pool renovation in progress" loading="lazy" />
@@ -423,7 +424,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
             <li>Fire bowls, fire features &amp; gas line work</li>
             <li>Color-changing LED lighting packages</li>
           </ul>
-          <a href="index.html#contact" class="sg-link">Explore water features <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="service-water-features.html" class="sg-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="sg-photo-wrap">
           <img src="vws-pool-hero-background.png" alt="Pool with water features at sunset" loading="lazy" />
@@ -444,10 +445,10 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
             <li>Landscape lighting &amp; low-voltage hardscape</li>
             <li>Screen enclosures &amp; pool cage installation</li>
           </ul>
-          <a href="index.html#contact" class="sg-link">Design your outdoor space <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="service-outdoor-living.html" class="sg-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="sg-photo-wrap">
-          <img src="aqualine-family-pool-hero.png" alt="Outdoor living space with pool and fire pit" loading="lazy" />
+          <img src="aqualine-outdoor-living.jpg" alt="Luxury outdoor living space with pool and pergola" loading="lazy" />
         </div>
       </div>
 
@@ -465,7 +466,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
             <li>Pentair &amp; Jandy smart automation systems</li>
             <li>Remote app setup &amp; system programming</li>
           </ul>
-          <a href="index.html#contact" class="sg-link">Upgrade your equipment <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="service-equipment-automation.html" class="sg-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="sg-photo-wrap">
           <img src="aqualine-pool-finished.png" alt="Smart pool automation system" loading="lazy" style="object-position:right center" />
@@ -486,7 +487,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
             <li>Seasonal startup, winterization &amp; storm prep</li>
             <li>Digital service report after every visit</li>
           </ul>
-          <a href="index.html#contact" class="sg-link">Start a service plan <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="service-maintenance.html" class="sg-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="sg-photo-wrap">
           <img src="aqualine-about-us-photo.png" alt="Aqualine service team" loading="lazy" />
