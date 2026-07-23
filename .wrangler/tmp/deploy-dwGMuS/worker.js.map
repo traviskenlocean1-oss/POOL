@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../src/worker.js"],
+  "sourceRoot": "C:\\Users\\locea_zau6eja\\OneDrive\\AI CODING\\pool\\.wrangler\\tmp\\deploy-dwGMuS",
+  "sourcesContent": ["export default {\n  async fetch(request, env) {\n    const url = new URL(request.url);\n    const response = await env.ASSETS.fetch(request);\n\n    const isHTML = !url.pathname.match(/\\.[a-z0-9]{2,8}(\\?.*)?$/i)\n      || url.pathname.endsWith('.html');\n\n    if (isHTML) {\n      const headers = new Headers(response.headers);\n      headers.set('Cache-Control', 'no-store, max-age=0, must-revalidate');\n      headers.set('Pragma', 'no-cache');\n      return new Response(response.body, { status: response.status, headers });\n    }\n\n    return response;\n  }\n};\n"],
+  "mappings": ";AAAA,IAAO,iBAAQ;AAAA,EACb,MAAM,MAAM,SAAS,KAAK;AACxB,UAAM,MAAM,IAAI,IAAI,QAAQ,GAAG;AAC/B,UAAM,WAAW,MAAM,IAAI,OAAO,MAAM,OAAO;AAE/C,UAAM,SAAS,CAAC,IAAI,SAAS,MAAM,0BAA0B,KACxD,IAAI,SAAS,SAAS,OAAO;AAElC,QAAI,QAAQ;AACV,YAAM,UAAU,IAAI,QAAQ,SAAS,OAAO;AAC5C,cAAQ,IAAI,iBAAiB,sCAAsC;AACnE,cAAQ,IAAI,UAAU,UAAU;AAChC,aAAO,IAAI,SAAS,SAAS,MAAM,EAAE,QAAQ,SAAS,QAAQ,QAAQ,CAAC;AAAA,IACzE;AAEA,WAAO;AAAA,EACT;AACF;",
+  "names": []
+}
