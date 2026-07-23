@@ -186,9 +186,65 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 .foot-col a:hover{color:var(--txt)}
 .foot-btm{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
 
+/* ── NAV DROPDOWN ── */
+.nav-item{position:relative;list-style:none}
+.nav-dropdown{
+  position:absolute;top:calc(100% + 10px);left:50%;
+  transform:translateX(-50%) translateY(-6px);
+  background:#fff;border-radius:12px;
+  box-shadow:0 12px 48px rgba(0,0,0,.16);
+  padding:8px;min-width:230px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .2s,transform .2s,visibility .2s;
+  border:1px solid rgba(0,0,0,.07);z-index:200;
+}
+.nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-dropdown a{display:block;padding:9px 14px;font-size:12px;font-weight:500;color:#1a2c3d;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;border-radius:8px;transition:background .15s,color .15s}
+.nav-dropdown a:hover{background:rgba(14,184,245,.1);color:var(--accent)}
+
+/* ── BUILD REVEAL ── */
+#srv-build-reveal{display:grid;grid-template-columns:1fr 1fr;height:560px;position:relative}
+.build-panel{position:relative;overflow:hidden}
+.build-panel img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.build-panel:hover img{transform:scale(1.04)}
+.build-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,13,.7) 0%,transparent 55%)}
+.build-label-wrap{position:absolute;bottom:0;left:0;right:0;padding:24px 32px}
+.build-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.build-badge.during{background:rgba(255,160,60,.18);color:#ffb347;border:1px solid rgba(255,160,60,.3)}
+.build-badge.done{background:rgba(14,184,245,.18);color:var(--accent);border:1px solid rgba(14,184,245,.3)}
+.build-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.1em;color:#fff}
+.build-vs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;width:50px;height:50px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:#061C2E;letter-spacing:.04em;box-shadow:0 4px 24px rgba(0,0,0,.28)}
+.build-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,.5);transform:translateX(-50%);z-index:5}
+
+/* ── ALTERNATING SERVICE CARDS ── */
+.sg-grid{display:flex;flex-direction:column;gap:24px}
+.sg-card{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--bdr-lt);background:var(--lt);transition:box-shadow .3s,transform .3s;min-height:400px}
+.sg-card:hover{box-shadow:0 16px 60px rgba(14,184,245,.1);transform:translateY(-2px)}
+.sg-content{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.sg-photo-wrap{position:relative;overflow:hidden}
+.sg-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;min-height:380px}
+.sg-card:hover .sg-photo-wrap img{transform:scale(1.04)}
+.sg-card.pr .sg-content{order:1}.sg-card.pr .sg-photo-wrap{order:2}
+.sg-card.pl .sg-content{order:2}.sg-card.pl .sg-photo-wrap{order:1}
+
+/* ── CTA WATER BG ── */
+#srv-cta{
+  position:relative;padding:140px 48px 120px;text-align:center;overflow:hidden;
+  background-image:url('aqualine-pool-finished.png');
+  background-size:cover;background-position:center 40%;
+}
+#srv-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,28,46,.35) 0%,rgba(6,28,46,.88) 40%,rgba(6,28,46,.97) 100%)}
+.cta-wave-top{position:absolute;top:-2px;left:0;right:0;z-index:1;line-height:0}
+.cta-wave-top svg{display:block;width:100%;height:auto;transform:scaleY(-1)}
+.srv-cta-inner{position:relative;z-index:2}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .sg-grid{grid-template-columns:1fr}
+  .sg-card{grid-template-columns:1fr;min-height:auto}
+  .sg-card.pr .sg-content,.sg-card.pl .sg-content{order:1}
+  .sg-card.pr .sg-photo-wrap,.sg-card.pl .sg-photo-wrap{order:2}
+  .sg-photo-wrap img{min-height:280px}
+  #srv-build-reveal{height:320px}
   .foot-inner{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
@@ -197,10 +253,12 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   .hamburger{display:flex}
   #srv-hero{background-position:65% center}
   #srv-intro,#services-grid,#srv-cta,footer{padding-left:20px;padding-right:20px}
-  .sg-card{padding:32px 28px}
+  .sg-content{padding:32px 24px}
   .foot-inner{grid-template-columns:1fr}
   .foot-btm{flex-direction:column;gap:10px;text-align:center}
   .cta-pair{flex-direction:column}
+  #srv-build-reveal{height:240px}
+  .build-title{font-size:22px}
 }
 </style>
 </head>
@@ -213,7 +271,17 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="services.html" class="active">Services</a></li>
+      <li class="nav-item">
+        <a href="services.html" class="active">Services</a>
+        <div class="nav-dropdown">
+          <a href="services.html#custom-pool-design">Custom Pool Design</a>
+          <a href="services.html#pool-renovations">Pool Renovations</a>
+          <a href="services.html#water-features">Water Features &amp; Spa</a>
+          <a href="services.html#outdoor-living">Outdoor Living</a>
+          <a href="services.html#equipment-automation">Smart Automation</a>
+          <a href="services.html#maintenance-plans">Maintenance Plans</a>
+        </div>
+      </li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="index.html#process">Process</a></li>
       <li><a href="index.html#contact">Get a Quote</a></li>
@@ -269,141 +337,160 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   </div>
 </section>
 
+<!-- BUILD REVEAL -->
+<div id="srv-build-reveal">
+  <!-- Left: During Construction -->
+  <div class="build-panel">
+    <img src="aqualine-pool-during-construction.png" alt="Pool under construction" loading="lazy" />
+    <div class="build-overlay"></div>
+    <div class="build-label-wrap">
+      <div class="build-badge during">In Progress</div>
+      <div class="build-title">During Construction</div>
+    </div>
+  </div>
+  <!-- Right: Finished -->
+  <div class="build-panel">
+    <img src="aqualine-pool-finished.png" alt="Finished pool result" loading="lazy" />
+    <div class="build-overlay"></div>
+    <div class="build-label-wrap">
+      <div class="build-badge done">Completed</div>
+      <div class="build-title">The Finished Result</div>
+    </div>
+  </div>
+  <!-- Center divider + VS badge -->
+  <div class="build-line"></div>
+  <div class="build-vs">VS</div>
+</div>
+
 <!-- SERVICES GRID -->
 <section id="services-grid">
   <div class="sg-inner">
     <div class="sg-grid">
 
-      <!-- 1 Custom Pool Design & Build -->
-      <div class="sg-card" id="custom-pool-design">
-        <div class="sg-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <!-- 1 Custom Pool Design — photo right -->
+      <div class="sg-card pr" id="custom-pool-design">
+        <div class="sg-content">
+          <p class="sg-num">01</p>
+          <h2 class="sg-title">Custom Pool Design &amp; Build</h2>
+          <p class="sg-desc">From the first sketch to the day you swim, we manage every phase. Our design team builds 3D renderings of your pool before a single shovel breaks ground — so you can see the exact shape, depth, tile, and finish before we start. No surprises. No rework.</p>
+          <ul class="sg-list">
+            <li>In-home design consultation &amp; 3D rendering</li>
+            <li>Site assessment, grading &amp; permit management</li>
+            <li>Structural excavation &amp; gunite/shotcrete shell</li>
+            <li>Full plumbing, electrical &amp; bonding</li>
+            <li>Tile, coping &amp; finish selection + installation</li>
+            <li>Equipment installation &amp; startup walkthrough</li>
+          </ul>
+          <a href="index.html#contact" class="sg-link">Get a design quote <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <p class="sg-num">01</p>
-        <h2 class="sg-title">Custom Pool Design & Build</h2>
-        <p class="sg-desc">From the first sketch to the day you swim, we manage every phase. Our design team builds 3D renderings of your pool before a single shovel breaks ground — so you can see the exact shape, depth, tile, and finish before we start. No surprises. No rework.</p>
-        <ul class="sg-list">
-          <li>In-home design consultation & 3D rendering</li>
-          <li>Site assessment, grading & permit management</li>
-          <li>Structural excavation & gunite/shotcrete shell</li>
-          <li>Full plumbing, electrical & bonding</li>
-          <li>Tile, coping & finish selection + installation</li>
-          <li>Equipment installation & startup walkthrough</li>
-        </ul>
-        <a href="index.html#contact" class="sg-link">
-          Get a design quote
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="sg-photo-wrap">
+          <img src="aqualine-pool-finished.png" alt="Custom pool build — finished result" loading="lazy" />
+        </div>
       </div>
 
-      <!-- 2 Renovations -->
-      <div class="sg-card" id="pool-renovations">
-        <div class="sg-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      <!-- 2 Renovations — photo left -->
+      <div class="sg-card pl" id="pool-renovations">
+        <div class="sg-content">
+          <p class="sg-num">02</p>
+          <h2 class="sg-title">Pool Renovations &amp; Remodeling</h2>
+          <p class="sg-desc">An aging pool doesn't mean starting over. We handle full-scale renovations — from surface resurfacing to structural rebuilds. Cracked plaster, outdated coping, broken equipment — we bring pools back to like-new condition, often for a fraction of replacement cost.</p>
+          <ul class="sg-list">
+            <li>Plaster, pebble &amp; quartz resurfacing</li>
+            <li>Tile replacement, coping &amp; waterline upgrades</li>
+            <li>Structural crack repair &amp; shell restoration</li>
+            <li>Deck resurfacing &amp; paver replacement</li>
+            <li>Equipment upgrades: pumps, filters, heaters</li>
+            <li>New plumbing, LED lighting &amp; bonding</li>
+          </ul>
+          <a href="index.html#contact" class="sg-link">Get a renovation quote <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <p class="sg-num">02</p>
-        <h2 class="sg-title">Pool Renovations & Remodeling</h2>
-        <p class="sg-desc">An aging pool doesn't mean starting over. We handle full-scale renovations — from surface resurfacing to structural rebuilds. Cracked plaster, outdated coping, broken equipment — we bring pools back to like-new condition, often for a fraction of replacement cost.</p>
-        <ul class="sg-list">
-          <li>Plaster, pebble & quartz resurfacing</li>
-          <li>Tile replacement, coping & waterline upgrades</li>
-          <li>Structural crack repair & shell restoration</li>
-          <li>Deck resurfacing & paver replacement</li>
-          <li>Equipment upgrades: pumps, filters, heaters</li>
-          <li>New plumbing, LED lighting & bonding</li>
-        </ul>
-        <a href="index.html#contact" class="sg-link">
-          Get a renovation quote
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="sg-photo-wrap">
+          <img src="aqualine-pool-during-construction.png" alt="Pool renovation in progress" loading="lazy" />
+        </div>
       </div>
 
-      <!-- 3 Water Features & Spa -->
-      <div class="sg-card" id="water-features">
-        <div class="sg-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+      <!-- 3 Water Features — photo right -->
+      <div class="sg-card pr" id="water-features">
+        <div class="sg-content">
+          <p class="sg-num">03</p>
+          <h2 class="sg-title">Water Features &amp; Spa Integration</h2>
+          <p class="sg-desc">The right feature transforms a pool into an experience. Cascading waterfalls, grottos, sun shelves, sheer descents, fire bowls, and spillover spas — we design and build features that add drama, ambiance, and real resale value to your outdoor space.</p>
+          <ul class="sg-list">
+            <li>Natural rock &amp; stacked-stone waterfalls</li>
+            <li>Sheer descents, rain curtains &amp; deck jets</li>
+            <li>Integrated spas, hot tubs &amp; spillover systems</li>
+            <li>Sun shelves, tanning ledges &amp; bubblers</li>
+            <li>Fire bowls, fire features &amp; gas line work</li>
+            <li>Color-changing LED lighting packages</li>
+          </ul>
+          <a href="index.html#contact" class="sg-link">Explore water features <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <p class="sg-num">03</p>
-        <h2 class="sg-title">Water Features & Spa Integration</h2>
-        <p class="sg-desc">The right feature transforms a pool into an experience. Cascading waterfalls, grottos, sun shelves, sheer descents, fire bowls, and spillover spas — we design and build features that add drama, ambiance, and real resale value to your outdoor space.</p>
-        <ul class="sg-list">
-          <li>Natural rock & stacked-stone waterfalls</li>
-          <li>Sheer descents, rain curtains & deck jets</li>
-          <li>Integrated spas, hot tubs & spillover systems</li>
-          <li>Sun shelves, tanning ledges & bubblers</li>
-          <li>Fire bowls, fire features & gas line work</li>
-          <li>Color-changing LED lighting packages</li>
-        </ul>
-        <a href="index.html#contact" class="sg-link">
-          Explore water features
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="sg-photo-wrap">
+          <img src="vws-pool-hero-background.png" alt="Pool with water features at sunset" loading="lazy" />
+        </div>
       </div>
 
-      <!-- 4 Outdoor Living -->
-      <div class="sg-card">
-        <div class="sg-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <!-- 4 Outdoor Living — photo left -->
+      <div class="sg-card pl" id="outdoor-living">
+        <div class="sg-content">
+          <p class="sg-num">04</p>
+          <h2 class="sg-title">Outdoor Living &amp; Decking</h2>
+          <p class="sg-desc">A great pool deserves an equally great surround. We design and build complete outdoor living spaces — from travertine pool decks to fully equipped summer kitchens, pergolas, and fire pits. Your pool is the centerpiece; we handle everything around it.</p>
+          <ul class="sg-list">
+            <li>Travertine, pavers &amp; stamped concrete decking</li>
+            <li>Outdoor &amp; summer kitchen construction</li>
+            <li>Pergolas, shade sails &amp; cabana structures</li>
+            <li>Fire pits &amp; outdoor fireplace installation</li>
+            <li>Landscape lighting &amp; low-voltage hardscape</li>
+            <li>Screen enclosures &amp; pool cage installation</li>
+          </ul>
+          <a href="index.html#contact" class="sg-link">Design your outdoor space <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <p class="sg-num">04</p>
-        <h2 class="sg-title">Outdoor Living & Decking</h2>
-        <p class="sg-desc">A great pool deserves an equally great surround. We design and build complete outdoor living spaces — from travertine pool decks to fully equipped summer kitchens, pergolas, and fire pits. Your pool is the centerpiece; we handle everything around it.</p>
-        <ul class="sg-list">
-          <li>Travertine, pavers & stamped concrete decking</li>
-          <li>Outdoor & summer kitchen construction</li>
-          <li>Pergolas, shade sails & cabana structures</li>
-          <li>Fire pits & outdoor fireplace installation</li>
-          <li>Landscape lighting & low-voltage hardscape</li>
-          <li>Screen enclosures & pool cage installation</li>
-        </ul>
-        <a href="index.html#contact" class="sg-link">
-          Design your outdoor space
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="sg-photo-wrap">
+          <img src="aqualine-family-pool-hero.png" alt="Outdoor living space with pool and fire pit" loading="lazy" />
+        </div>
       </div>
 
-      <!-- 5 Equipment & Automation -->
-      <div class="sg-card">
-        <div class="sg-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+      <!-- 5 Equipment & Automation — photo right -->
+      <div class="sg-card pr" id="equipment-automation">
+        <div class="sg-content">
+          <p class="sg-num">05</p>
+          <h2 class="sg-title">Equipment &amp; Smart Automation</h2>
+          <p class="sg-desc">Modern pool tech makes ownership effortless. We install and upgrade all pool equipment — variable-speed pumps, gas heaters, saltwater systems, and full smart-home automation. Control your pool, lights, and features from your phone, from anywhere.</p>
+          <ul class="sg-list">
+            <li>Variable-speed pump installation &amp; sizing</li>
+            <li>Gas, heat pump &amp; solar heater systems</li>
+            <li>Saltwater chlorination &amp; mineral systems</li>
+            <li>Color-changing LED lighting retrofit</li>
+            <li>Pentair &amp; Jandy smart automation systems</li>
+            <li>Remote app setup &amp; system programming</li>
+          </ul>
+          <a href="index.html#contact" class="sg-link">Upgrade your equipment <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <p class="sg-num">05</p>
-        <h2 class="sg-title">Equipment & Smart Automation</h2>
-        <p class="sg-desc">Modern pool tech makes ownership effortless. We install and upgrade all pool equipment — variable-speed pumps, gas heaters, saltwater systems, and full smart-home automation. Control your pool, lights, and features from your phone, from anywhere.</p>
-        <ul class="sg-list">
-          <li>Variable-speed pump installation & sizing</li>
-          <li>Gas, heat pump & solar heater systems</li>
-          <li>Saltwater chlorination & mineral systems</li>
-          <li>Color-changing LED lighting retrofit</li>
-          <li>Pentair & Jandy smart automation systems</li>
-          <li>Remote app setup & system programming</li>
-        </ul>
-        <a href="index.html#contact" class="sg-link">
-          Upgrade your equipment
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="sg-photo-wrap">
+          <img src="aqualine-pool-finished.png" alt="Smart pool automation system" loading="lazy" style="object-position:right center" />
+        </div>
       </div>
 
-      <!-- 6 Maintenance -->
-      <div class="sg-card" id="maintenance-plans">
-        <div class="sg-icon">
-          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <!-- 6 Maintenance — photo left -->
+      <div class="sg-card pl" id="maintenance-plans">
+        <div class="sg-content">
+          <p class="sg-num">06</p>
+          <h2 class="sg-title">Weekly Service &amp; Maintenance</h2>
+          <p class="sg-desc">Keep your investment pristine year-round without lifting a finger. Our certified service teams provide weekly visits, chemical balancing, equipment checks, and seasonal tune-ups — so pool ownership stays enjoyable, not a second job.</p>
+          <ul class="sg-list">
+            <li>Weekly chemical balancing &amp; water testing</li>
+            <li>Brush, skim &amp; vacuum service</li>
+            <li>Filter cleaning, backwash &amp; inspection</li>
+            <li>Minor equipment repairs &amp; adjustments</li>
+            <li>Seasonal startup, winterization &amp; storm prep</li>
+            <li>Digital service report after every visit</li>
+          </ul>
+          <a href="index.html#contact" class="sg-link">Start a service plan <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <p class="sg-num">06</p>
-        <h2 class="sg-title">Weekly Service & Maintenance</h2>
-        <p class="sg-desc">Keep your investment pristine year-round without lifting a finger. Our certified service teams provide weekly visits, chemical balancing, equipment checks, and seasonal tune-ups — so pool ownership stays enjoyable, not a second job.</p>
-        <ul class="sg-list">
-          <li>Weekly chemical balancing & water testing</li>
-          <li>Brush, skim & vacuum service</li>
-          <li>Filter cleaning, backwash & inspection</li>
-          <li>Minor equipment repairs & adjustments</li>
-          <li>Seasonal startup, winterization & storm prep</li>
-          <li>Digital service report after every visit</li>
-        </ul>
-        <a href="index.html#contact" class="sg-link">
-          Start a service plan
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="sg-photo-wrap">
+          <img src="aqualine-about-us-photo.png" alt="Aqualine service team" loading="lazy" />
+        </div>
       </div>
 
     </div>
@@ -412,6 +499,12 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
 
 <!-- CTA BANNER -->
 <section id="srv-cta">
+  <!-- wave top edge (curves into water photo from white services bg) -->
+  <div class="cta-wave-top">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,55 C240,90 480,10 720,50 C960,90 1200,10 1440,55 L1440,0 L0,0Z" fill="#F5F7FA"/>
+    </svg>
+  </div>
   <div class="srv-cta-inner">
     <p class="sec-eye">Ready to Build?</p>
     <h2>Your Dream Pool Starts With One Call.</h2>
@@ -443,7 +536,6 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="index.html#process">Our Process</a></li>
         <li><a href="index.html#contact">Get a Quote</a></li>
       </ul>
