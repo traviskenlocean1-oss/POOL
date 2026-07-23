@@ -34,12 +34,12 @@ body{background:var(--dk);color:var(--txt);font-family:'Inter',sans-serif;font-s
 .back-link:hover{color:var(--accent)}
 .back-link svg{transition:transform .2s}
 .back-link:hover svg{transform:translateX(-3px)}
-#hero{position:relative;padding:200px 64px 140px;background:var(--dk);text-align:center;overflow:hidden}
-#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(14,184,245,.07) 0%,transparent 70%)}
-.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
+#hero{position:relative;height:85vh;min-height:620px;background-image:url('img-equip-hero.jpg');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,9,13,.5) 0%,rgba(8,9,13,.82) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 24px}
 .hero-eye{font-size:13px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:block}
 .hero-inner h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9vw,116px);line-height:.88;color:#fff;letter-spacing:.02em;margin-bottom:28px}
-.hero-inner p{font-size:20px;color:var(--muted);line-height:1.7;max-width:700px;margin:0 auto}
+.hero-inner p{font-size:20px;color:rgba(255,255,255,.82);line-height:1.7;max-width:680px;margin:0 auto}
 #tech{padding:120px 64px;background:var(--dk)}
 .tech-inner{max-width:1400px;margin:0 auto}
 .section-label{font-size:13px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
