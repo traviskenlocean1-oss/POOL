@@ -13,8 +13,8 @@
 :root{--dk:#08090D;--dk2:#0D1117;--accent:#0EB8F5;--accent-dk:#0899CC;--txt:#E4EAF0;--muted:#6B7A8D;--bdr:rgba(255,255,255,.07);--lt:#F5F7FA;--lt2:#FFFFFF;--txt-dk:#0F1218;--muted-dk:#4A5568;}
 html{scroll-behavior:smooth}
 body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;font-size:18px;line-height:1.7;overflow-x:hidden}
-#nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100;background:linear-gradient(to bottom,rgba(8,9,13,.55) 0%,transparent 100%);transition:background .35s ease,box-shadow .35s ease}
-#nav.scrolled{background:#fff;box-shadow:0 2px 24px rgba(0,0,0,.09)}
+#nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:100;background:rgba(8,9,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);transition:background .35s}
+#nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 2px 24px rgba(0,0,0,.09);border-color:rgba(0,0,0,.06)}
 .nav-logo{display:flex;align-items:center;text-decoration:none;background:rgba(255,255,255,.95);border-radius:8px;padding:5px 14px;transition:all .35s}
 .nav-logo img{height:44px;width:auto;display:block}
 #nav.scrolled .nav-logo{background:transparent;padding:5px 0}
@@ -161,7 +161,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:72px 64px 40
 <section class="aqua-cta">
   <div class="aqua-wave-top">
     <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,60 C200,100 400,20 600,55 C800,90 1050,15 1200,50 C1320,75 1400,45 1440,55 L1440,0 L0,0Z" fill="#08090D"/>
+      <path d="M0,60 C200,100 400,20 600,55 C800,90 1050,15 1200,50 C1320,75 1400,45 1440,55 L1440,0 L0,0Z" fill="#FFFFFF"/>
     </svg>
   </div>
   <div class="aqua-cta-inner">
