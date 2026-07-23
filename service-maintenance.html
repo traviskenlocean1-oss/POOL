@@ -37,13 +37,13 @@ body{background:var(--lt2);color:var(--txt-dk);font-family:'Inter',sans-serif;fo
 .back-link:hover{color:var(--accent)}
 .back-link svg{transition:transform .2s}
 .back-link:hover svg{transform:translateX(-3px)}
-/* HERO: light blue gradient for maintenance */
-#hero{position:relative;padding:180px 64px 140px;background:linear-gradient(160deg,#0D1117 0%,#061C2E 50%,#0B3554 100%);text-align:center;overflow:hidden}
-#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(14,184,245,.15) 0%,transparent 70%)}
-.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
+/* HERO: photo hero for maintenance */
+#hero{position:relative;height:85vh;min-height:620px;background-image:url('img-maint-hero.jpg');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,9,13,.5) 0%,rgba(8,9,13,.8) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 24px}
 .hero-eye{font-size:13px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:block}
 .hero-inner h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(62px,9vw,116px);line-height:.88;color:#fff;letter-spacing:.02em;margin-bottom:28px}
-.hero-inner p{font-size:20px;color:rgba(255,255,255,.75);line-height:1.7;max-width:680px;margin:0 auto}
+.hero-inner p{font-size:20px;color:rgba(255,255,255,.82);line-height:1.7;max-width:680px;margin:0 auto}
 #regimen{padding:120px 64px;background:var(--lt)}
 .sec-inner{max-width:1400px;margin:0 auto}
 .section-label{font-size:13px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
