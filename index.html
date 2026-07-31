@@ -850,17 +850,18 @@ const h1      = document.getElementById('scrub-h1');
 const sub     = document.getElementById('scrub-sub');
 const eye     = document.getElementById('scrub-eye');
 
-// Stage breakpoints matched to the actual clip content (grass-burst clip is
-// 7.29s of the 22.38s combined video, ~0.326 of total — everything after
-// that fraction is the pit/rebar/shell/tile/water clip).
+// Stage breakpoints matched to the actual clip content. A ~1s static hold
+// right at the clip1/clip2 join (pit sitting still before rebar motion
+// starts) was trimmed out, so these are re-timed against the shorter
+// 21.38s video rather than the original equal-ish spacing.
 const stages = [
   { at:0,     text:'' },
   { at:0.02,  text:'WE DIG' },
-  { at:0.326, text:'WE REINFORCE' },
-  { at:0.46,  text:'WE FRAME' },
-  { at:0.60,  text:'WE FINISH' },
-  { at:0.68,  text:'READY TO FILL' },
-  { at:0.86,  text:'YOUR POOL IS READY' },
+  { at:0.351, text:'WE REINFORCE' },
+  { at:0.435, text:'WE FRAME' },
+  { at:0.580, text:'WE FINISH' },
+  { at:0.669, text:'READY TO FILL' },
+  { at:0.856, text:'YOUR POOL IS READY' },
 ];
 
 let prev='', raf=false, seeking=false, pendingP=null;
