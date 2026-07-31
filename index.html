@@ -260,6 +260,12 @@ body.light-sec{background:var(--lt)}
 .srv-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.04em;margin-bottom:10px;color:var(--txt-dk)}
 .srv-desc{font-size:15px;color:var(--muted-dk);line-height:1.65;padding-bottom:16px}
 
+/* water moment — pinned scroll-scrub, same mechanic as the hero */
+.water-scrub-wrap{position:relative;height:260vh}
+.water-scrub-pin{position:sticky;top:0;height:100vh;width:100%;overflow:hidden}
+.water-scrub-pin video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(1.12)}
+.water-scrub-pin::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,9,13,.12) 0%,transparent 18%,transparent 82%,rgba(8,9,13,.22) 100%);pointer-events:none}
+
 /* process */
 #process{background:var(--lt);padding:100px 48px}
 #process .sec-inner{max-width:1200px;margin:0 auto}
@@ -368,6 +374,7 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
   #intro,.gal-pre-header,#why-aqualine,#services,#process,#testimonials,#contact,footer{padding-left:20px;padding-right:20px}
   .contact-panel-inner,.contact-form-panel{padding:36px 24px}
   .scrub-wrap{height:500vh}
+  .water-scrub-wrap{height:200vh}
   .hero-float-cta{right:20px;bottom:24px}
   .gal-hero,.gal-grid{padding:0 20px}
   .gal-grid{grid-template-columns:1fr 1fr}
@@ -641,6 +648,13 @@ footer{background:var(--dk);border-top:1px solid var(--bdr);padding:64px 48px 32
     </div>
   </div>
 </section>
+
+<!-- WATER MOMENT — pinned scroll-scrub, same mechanic as the hero -->
+<div class="water-scrub-wrap" id="water-scrub-wrap">
+  <div class="water-scrub-pin">
+    <video id="water-scrub-video" muted playsinline preload="auto"></video>
+  </div>
+</div>
 
 <!-- PROCESS — light bg -->
 <section id="process">
@@ -933,6 +947,46 @@ function tickGallery() {
 window.addEventListener('scroll', tickGallery, { passive: true });
 window.addEventListener('resize', tickGallery);
 tickGallery();
+
+/* ── WATER MOMENT (pinned scroll-scrub, same mechanic as the hero) ── */
+const wWrap  = document.getElementById('water-scrub-wrap');
+const wVideo = document.getElementById('water-scrub-video');
+let wSeeking = false, wPendingP = null, wRaf = false;
+
+fetch('aqualine-water-loop.mp4')
+  .then(r => r.blob())
+  .then(blob => {
+    wVideo.src = URL.createObjectURL(blob);
+    wVideo.addEventListener('loadedmetadata', wTick);
+  });
+
+wVideo.addEventListener('seeked', () => {
+  wSeeking = false;
+  if (wPendingP !== null) {
+    const p = wPendingP; wPendingP = null;
+    wSeekTo(p);
+  }
+});
+
+function wSeekTo(p) {
+  if (!wVideo.duration) return;
+  if (wSeeking) { wPendingP = p; return; }
+  wSeeking = true;
+  wVideo.currentTime = p * wVideo.duration;
+}
+
+function wProg() {
+  const t = wWrap.offsetTop, h = wWrap.offsetHeight, vh = window.innerHeight;
+  return Math.max(0, Math.min(1, (window.scrollY - t) / (h - vh)));
+}
+
+function wTick() {
+  wSeekTo(wProg());
+  wRaf = false;
+}
+
+window.addEventListener('scroll', () => { if (!wRaf) { wRaf = true; requestAnimationFrame(wTick); } }, { passive: true });
+wTick();
 
 /* ── SCROLLED NAV ── */
 const navEl = document.getElementById('nav');
