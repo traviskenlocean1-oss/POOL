@@ -872,7 +872,15 @@ fetch('aqualine-hero.mp4')
   .then(r => r.blob())
   .then(blob => {
     video.src = URL.createObjectURL(blob);
-    video.addEventListener('loadedmetadata', tick);
+    video.addEventListener('loadedmetadata', () => {
+      // iOS Safari never paints a seeked video frame until play() has run at
+      // least once on that element — a video that's only ever had its
+      // currentTime set (no real playback) stays black or frozen no matter
+      // how many seeks happen. Silently play + immediately pause once to
+      // unlock the decoder before any scroll-driven seeking begins.
+      video.play().then(() => video.pause()).catch(() => {});
+      tick();
+    });
   });
 
 video.addEventListener('seeked', () => {
@@ -958,7 +966,12 @@ fetch('aqualine-water-loop.mp4')
   .then(r => r.blob())
   .then(blob => {
     wVideo.src = URL.createObjectURL(blob);
-    wVideo.addEventListener('loadedmetadata', wTick);
+    wVideo.addEventListener('loadedmetadata', () => {
+      // Same iOS Safari fix as the main hero video above — unlock the
+      // decoder with a silent play+pause before scroll-driven seeking.
+      wVideo.play().then(() => wVideo.pause()).catch(() => {});
+      wTick();
+    });
   });
 
 wVideo.addEventListener('seeked', () => {
